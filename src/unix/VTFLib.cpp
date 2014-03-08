@@ -1,6 +1,6 @@
 /*
  * VTFLib
- * Copyright (C) 2005-2010 Neil Jedrzejewski & Ryan Gregg
+ * Copyright (C) 2014 Mathias Panzenböck
 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,24 +15,13 @@
 
 using namespace VTFLib;
 
-//
-// DllMain()
-// DLL entry point.
-//
-BOOL APIENTRY DllMain(HANDLE hModule, DWORD dwReason, LPVOID lpReserved)
-{
-	switch(dwReason)
-	{
-	case DLL_PROCESS_ATTACH:
-		break;
-	case DLL_THREAD_ATTACH:
-		break;
-	case DLL_THREAD_DETACH:
-		break;
-	case DLL_PROCESS_DETACH:
-		vlShutdown();
-		break;
-	}
-    return TRUE;
-}
+struct LibCallbacks {
+	LibCallbacks() {}
 
+	~LibCallbacks() {
+		vlShutdown();
+	}
+};
+
+// gcc actually calls constructors and destructors of global objects in libraries
+static LibCallbacks libCallbacks;

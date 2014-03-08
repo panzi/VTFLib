@@ -9,6 +9,8 @@
  * version.
  */
 
+#include <sys/stat.h>
+
 #include "../VTFLib.h"
 #include "../FileReader.h"
 
@@ -54,7 +56,7 @@ vlSSize CFileReader::GetStreamSize() const
 		return -1;
 	}
 
-	return st.st_size;
+	return buf.st_size;
 }
 
 vlSSize CFileReader::GetStreamPointer() const
@@ -65,7 +67,7 @@ vlSSize CFileReader::GetStreamPointer() const
 	}
 
 	vlOffset offset = ftello(this->hFile);
-	if(offeset < 0)
+	if(offset < 0)
 	{
 		LastError.Set("ftello() failed.", vlTrue);
 	}

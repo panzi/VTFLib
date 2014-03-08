@@ -9,8 +9,10 @@
  * version.
  */
 
-#include "VTFLib.h"
-#include "FileWriter.h"
+#include <sys/stat.h>
+
+#include "../VTFLib.h"
+#include "../FileWriter.h"
 
 using namespace VTFLib;
 using namespace VTFLib::IO::Writers;
@@ -54,7 +56,7 @@ vlSSize CFileWriter::GetStreamSize() const
 		return -1;
 	}
 
-	return st.st_size;
+	return buf.st_size;
 }
 
 vlSSize CFileWriter::GetStreamPointer() const
@@ -65,7 +67,7 @@ vlSSize CFileWriter::GetStreamPointer() const
 	}
 
 	vlOffset offset = ftello(this->hFile);
-	if(offeset < 0)
+	if(offset < 0)
 	{
 		LastError.Set("ftello() failed.", vlTrue);
 	}

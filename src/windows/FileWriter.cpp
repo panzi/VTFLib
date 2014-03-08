@@ -9,8 +9,8 @@
  * version.
  */
 
-#include "VTFLib.h"
-#include "FileWriter.h"
+#include "../VTFLib.h"
+#include "../FileWriter.h"
 
 using namespace VTFLib;
 using namespace VTFLib::IO::Writers;

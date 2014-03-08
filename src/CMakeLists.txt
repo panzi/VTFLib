@@ -27,4 +27,4 @@ else()
 	add_subdirectory(unix)
 endif()
 
-add_library(vtflib ${vtflib_SRCS})
+add_library(vtflib ${vtflib_SRCS} ${vtflib_OS_SRCS})
