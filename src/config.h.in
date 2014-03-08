@@ -1,0 +1,10 @@
+#ifndef VTFLIB_CONFIG_H
+#define VTFLIB_CONFIG_H
+
+#define VL_VERSION			@VTFLIB_MAJOR_VERSION@@VTFLIB_MINOR_VERSION@@VTFLIB_PATCH_VERSION@			//!< VTFLib version as integer
+#define VL_VERSION_STRING	"@VTFLIB_MAJOR_VERSION@.@VTFLIB_MINOR_VERSION@.@VTFLIB_PATCH_VERSION@"		//!< VTFLib version as string
+#define VL_MAJOR_VERSION	@VTFLIB_MAJOR_VERSION@		//!< VTFLib major version as integer
+#define VL_MINOR_VERSION	@VTFLIB_MINOR_VERSION@		//!< VTFLib minor version as integer
+#define VL_PATCH_VERSION	@VTFLIB_PATCH_VERSION@		//!< VTFLib patch version as integer
+
+#endif

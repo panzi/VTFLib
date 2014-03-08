@@ -20,6 +20,8 @@
 #ifndef VTFLIB_STDAFX_H
 #define VTFLIB_STDAFX_H
 
+#include "config.h"
+
 #if defined(_WIN32) || defined(_WIN64)
 #	ifndef __WINDOWS__
 #		define __WINDOWS__

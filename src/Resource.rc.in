@@ -71,12 +71,12 @@ BEGIN
         BEGIN
             VALUE "Comments", "Half-Life Texture Library"
             VALUE "FileDescription", "VTFLib Dynamic Link Library"
-            VALUE "FileVersion", "1.3.2"
+            VALUE "FileVersion", "@VTFLIB_VERSION@"
             VALUE "InternalName", "VTFLib"
             VALUE "LegalCopyright", "Copyright (C) 2005-2011 Neil Jedrzejewski & Ryan Gregg"
             VALUE "OriginalFilename", "VTFLib.dll"
             VALUE "ProductName", "VTFLib Dynamic Link Library"
-            VALUE "ProductVersion", "1.3.2"
+            VALUE "ProductVersion", "@VTFLIB_VERSION@"
         END
     END
     BLOCK "VarFileInfo"

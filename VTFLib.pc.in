@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/include/@VTFLIB_NAME@
+
+Name: VTFLib
+Description: Half-Life Texture Library
+Version: @VTFLIB_VERSION@
+URL: https://github.com/panzi/VTFLib
+Libs: -L${libdir} -l@VTFLIB_NAME@
+Cflags: -I${includedir}
