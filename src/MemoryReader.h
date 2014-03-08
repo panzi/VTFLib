@@ -27,12 +27,12 @@ namespace VTFLib
 				vlBool bOpened;
 
 				const vlVoid *vData;
-				vlUInt uiBufferSize;
+				vlSize uiBufferSize;
 
-				vlUInt uiPointer;
+				vlSize uiPointer;
 
 			public:
-				CMemoryReader(const vlVoid *vData, vlUInt uiBufferSize);
+				CMemoryReader(const vlVoid *vData, vlSize uiBufferSize);
 				~CMemoryReader();
 
 			public:
@@ -41,13 +41,13 @@ namespace VTFLib
 				virtual vlBool Open();
 				virtual vlVoid Close();
 
-				virtual vlUInt GetStreamSize() const;
-				virtual vlUInt GetStreamPointer() const;
+				virtual vlSSize GetStreamSize() const;
+				virtual vlSSize GetStreamPointer() const;
 
-				virtual vlUInt Seek(vlLong lOffset, vlUInt uiMode);
+				virtual vlSSize Seek(vlOffset lOffset, VLSeekMode uiMode);
 
 				virtual vlBool Read(vlChar &cChar);
-				virtual vlUInt Read(vlVoid *vData, vlUInt uiBytes);
+				virtual vlSize Read(vlVoid *vData, vlSize uiBytes);
 			};
 		}
 	}

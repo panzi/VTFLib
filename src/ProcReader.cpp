@@ -73,7 +73,7 @@ vlVoid CProcReader::Close()
 	}
 }
 
-vlUInt CProcReader::GetStreamSize() const
+vlSSize CProcReader::GetStreamSize() const
 {
 	if(!this->bOpened)
 	{
@@ -89,7 +89,7 @@ vlUInt CProcReader::GetStreamSize() const
 	return pReadSizeProc(this->pUserData);
 }
 
-vlUInt CProcReader::GetStreamPointer() const
+vlSSize CProcReader::GetStreamPointer() const
 {
 	if(!this->bOpened)
 	{
@@ -105,7 +105,7 @@ vlUInt CProcReader::GetStreamPointer() const
 	return pReadTellProc(this->pUserData);
 }
 
-vlUInt CProcReader::Seek(vlLong lOffset, vlUInt uiMode)
+vlSSize CProcReader::Seek(vlOffset lOffset, VLSeekMode uiMode)
 {
 	if(!this->bOpened)
 	{
@@ -144,7 +144,7 @@ vlBool CProcReader::Read(vlChar &cChar)
 	return uiBytesRead == 1;
 }
 
-vlUInt CProcReader::Read(vlVoid *vData, vlUInt uiBytes)
+vlSize CProcReader::Read(vlVoid *vData, vlSize uiBytes)
 {
 	if(!this->bOpened)
 	{

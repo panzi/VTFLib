@@ -9,6 +9,9 @@
  * version.
  */
 
+#include <string.h>
+#include <ctype.h>
+
 #include "VTFLib.h"
 #include "VMTFile.h"
 
@@ -188,7 +191,7 @@ public:
 	// Get the char that was tokenized.  Only works if
 	// token is a TOKEN_CHAR or was tokenized by the byte
 	// tokenizer.
-	const vlChar GetChar() const
+	vlChar GetChar() const
 	{
 		return this->cChar;
 	}

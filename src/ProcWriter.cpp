@@ -73,7 +73,7 @@ vlVoid CProcWriter::Close()
 	}
 }
 
-vlUInt CProcWriter::GetStreamSize() const
+vlSSize CProcWriter::GetStreamSize() const
 {
 	if(!this->bOpened)
 	{
@@ -89,7 +89,7 @@ vlUInt CProcWriter::GetStreamSize() const
 	return pWriteSizeProc(this->pUserData);
 }
 
-vlUInt CProcWriter::GetStreamPointer() const
+vlSSize CProcWriter::GetStreamPointer() const
 {
 	if(!this->bOpened)
 	{
@@ -105,7 +105,7 @@ vlUInt CProcWriter::GetStreamPointer() const
 	return pWriteTellProc(this->pUserData);
 }
 
-vlUInt CProcWriter::Seek(vlLong lOffset, vlUInt uiMode)
+vlSSize CProcWriter::Seek(vlOffset lOffset, VLSeekMode uiMode)
 {
 	if(!this->bOpened)
 	{
@@ -134,7 +134,7 @@ vlBool CProcWriter::Write(vlChar cChar)
 		return vlFalse;
 	}
 
-	vlUInt uiBytesWritten = pWriteWriteProc(&cChar, 1, this->pUserData);
+	vlSize uiBytesWritten = pWriteWriteProc(&cChar, 1, this->pUserData);
 
 	if(uiBytesWritten == 0)
 	{
@@ -144,7 +144,7 @@ vlBool CProcWriter::Write(vlChar cChar)
 	return uiBytesWritten == 1;
 }
 
-vlUInt CProcWriter::Write(vlVoid *vData, vlUInt uiBytes)
+vlSize CProcWriter::Write(vlVoid *vData, vlSize uiBytes)
 {
 	if(!this->bOpened)
 	{
@@ -157,7 +157,7 @@ vlUInt CProcWriter::Write(vlVoid *vData, vlUInt uiBytes)
 		return 0;
 	}
 
-	vlUInt uiBytesWritten = pWriteWriteProc(vData, uiBytes, this->pUserData);
+	vlSize uiBytesWritten = pWriteWriteProc(vData, uiBytes, this->pUserData);
 
 	if(uiBytesWritten == 0)
 	{

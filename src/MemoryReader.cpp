@@ -9,18 +9,21 @@
  * version.
  */
 
+#include <string.h>
+
 #include "VTFLib.h"
 #include "MemoryReader.h"
 
 using namespace VTFLib;
 using namespace VTFLib::IO::Readers;
 
-CMemoryReader::CMemoryReader(const vlVoid *vData, vlUInt uiBufferSize)
+CMemoryReader::CMemoryReader(const vlVoid *vData, vlSize uiBufferSize)
 {
 	this->bOpened = vlFalse;
 
 	this->vData = vData;
 	this->uiBufferSize = uiBufferSize;
+	this->uiPointer = 0;
 }
 
 CMemoryReader::~CMemoryReader()
@@ -53,7 +56,7 @@ vlVoid CMemoryReader::Close()
 	this->bOpened = vlFalse;
 }
 
-vlUInt CMemoryReader::GetStreamSize() const
+vlSSize CMemoryReader::GetStreamSize() const
 {
 	if(!this->bOpened)
 	{
@@ -63,7 +66,7 @@ vlUInt CMemoryReader::GetStreamSize() const
 	return this->uiBufferSize;
 }
 
-vlUInt CMemoryReader::GetStreamPointer() const
+vlSSize CMemoryReader::GetStreamPointer() const
 {
 	if(!this->bOpened)
 	{
@@ -73,7 +76,7 @@ vlUInt CMemoryReader::GetStreamPointer() const
 	return this->uiPointer;
 }
 
-vlUInt CMemoryReader::Seek(vlLong lOffset, vlUInt uiMode)
+vlSSize CMemoryReader::Seek(vlOffset lOffset, VLSeekMode uiMode)
 {
 	if(!this->bOpened)
 	{
@@ -82,32 +85,32 @@ vlUInt CMemoryReader::Seek(vlLong lOffset, vlUInt uiMode)
 
 	switch(uiMode)
 	{
-		case FILE_BEGIN:
+		case SEEK_MODE_BEGIN:
 			this->uiPointer = 0;
 			break;
-		case FILE_CURRENT:
+		case SEEK_MODE_CURRENT:
 
 			break;
-		case FILE_END:
+		case SEEK_MODE_END:
 			this->uiPointer = this->uiBufferSize;
 			break;
 	}
 
-	vlLong lPointer = (vlLong)this->uiPointer + lOffset;
+	vlOffset lPointer = (vlOffset)this->uiPointer + lOffset;
 
 	if(lPointer < 0)
 	{
 		lPointer = 0;
 	}
 
-	if(lPointer > (vlLong)this->uiBufferSize)
+	if(lPointer > (vlOffset)this->uiBufferSize)
 	{
-		lPointer = (vlLong)this->uiBufferSize;
+		lPointer = (vlOffset)this->uiBufferSize;
 	}
 
-	this->uiPointer = (vlUInt)lPointer;
+	this->uiPointer = (vlSize)lPointer;
 
-	return this->uiPointer;
+	return (vlSSize)this->uiPointer;
 }
 
 vlBool CMemoryReader::Read(vlChar &cChar)
@@ -131,7 +134,7 @@ vlBool CMemoryReader::Read(vlChar &cChar)
 	}
 }
 
-vlUInt CMemoryReader::Read(vlVoid *vData, vlUInt uiBytes)
+vlSize CMemoryReader::Read(vlVoid *vData, vlSize uiBytes)
 {
 	if(!this->bOpened)
 	{
@@ -142,7 +145,8 @@ vlUInt CMemoryReader::Read(vlVoid *vData, vlUInt uiBytes)
 	{
 		return 0;
 	}
-	else if(this->uiPointer + uiBytes > this->uiBufferSize) // This right?
+	else if(uiBytes > this->uiBufferSize || // <- prevent integer overflow
+		this->uiPointer + uiBytes > this->uiBufferSize) // This right?
 	{
 		uiBytes = this->uiBufferSize - this->uiPointer;
 

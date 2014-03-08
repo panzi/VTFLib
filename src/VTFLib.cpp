@@ -136,12 +136,14 @@ VTFLIB_API vlVoid vlShutdown()
 
 VTFLIB_API vlBool vlGetBoolean(VTFLibOption Option)
 {
+	(void)Option;
 	return vlFalse;
 }
 
 VTFLIB_API vlVoid vlSetBoolean(VTFLibOption Option, vlBool bValue)
 {
-
+	(void)Option;
+	(void)bValue;
 }
 
 VTFLIB_API vlInt vlGetInteger(VTFLibOption Option)

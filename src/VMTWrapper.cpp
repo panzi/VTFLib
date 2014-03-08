@@ -10,6 +10,7 @@
  */
 
 #include <deque>
+#include <string.h>
 
 #include "VTFLib.h"
 #include "VMTWrapper.h"
@@ -435,7 +436,7 @@ VTFLIB_API vlBool vlMaterialGetChildNode(const vlChar *cName)
 	for(vlUInt i = 0; i < VMTGroupNode->GetNodeCount(); i++)
 	{
 		VMTNode = VMTGroupNode->GetNode(i);
-		if(_stricmp(VMTNode->GetName(), cName) == 0)
+		if(strcasecmp(VMTNode->GetName(), cName) == 0)
 		{
 			// If the child is a group, enter it at the start.
 			if(VMTNode->GetType() == NODE_TYPE_GROUP)

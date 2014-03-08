@@ -9,6 +9,8 @@
  * version.
  */
 
+#include <string.h>
+
 #include "VTFLib.h"
 #include "VTFWrapper.h"
 #include "VTFFile.h"

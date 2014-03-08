@@ -28,13 +28,13 @@ namespace VTFLib
 				virtual vlBool Open() = 0;
 				virtual vlVoid Close() = 0;
 
-				virtual vlUInt GetStreamSize() const = 0;
-				virtual vlUInt GetStreamPointer() const = 0;
+				virtual vlSSize GetStreamSize() const = 0;
+				virtual vlSSize GetStreamPointer() const = 0;
 
-				virtual vlUInt Seek(vlLong lOffset, vlUInt uiMode) = 0;
+				virtual vlSSize Seek(vlOffset lOffset, VLSeekMode uiMode) = 0;
 
 				virtual vlBool Write(vlChar cChar) = 0;
-				virtual vlUInt Write(vlVoid *vData, vlUInt uiBytes) = 0;
+				virtual vlSize Write(vlVoid *vData, vlSize uiBytes) = 0;
 			};
 		}
 	}

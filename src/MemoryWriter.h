@@ -27,13 +27,13 @@ namespace VTFLib
 				vlBool bOpened;
 
 				vlVoid *vData;
-				vlUInt uiBufferSize;
+				vlSize uiBufferSize;
 
-				vlUInt uiPointer;
-				vlUInt uiLength;
+				vlSize uiPointer;
+				vlSize uiLength;
 
 			public:
-				CMemoryWriter(vlVoid *vData, vlUInt uiBufferSize);
+				CMemoryWriter(vlVoid *vData, vlSize uiBufferSize);
 				~CMemoryWriter();
 
 			public:
@@ -42,13 +42,13 @@ namespace VTFLib
 				virtual vlBool Open();
 				virtual vlVoid Close();
 
-				virtual vlUInt GetStreamSize() const;
-				virtual vlUInt GetStreamPointer() const;
+				virtual vlSSize GetStreamSize() const;
+				virtual vlSSize GetStreamPointer() const;
 
-				virtual vlUInt Seek(vlLong lOffset, vlUInt uiMode);
+				virtual vlSSize Seek(vlOffset lOffset, VLSeekMode uiMode);
 
 				virtual vlBool Write(vlChar cChar);
-				virtual vlUInt Write(vlVoid *vData, vlUInt uiBytes);
+				virtual vlSize Write(vlVoid *vData, vlSize uiBytes);
 			};
 		}
 	}

@@ -10,6 +10,7 @@
  */
 
 #include "VMTStringNode.h"
+#include <string.h>
 
 using namespace VTFLib::Nodes;
 

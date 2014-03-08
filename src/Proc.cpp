@@ -30,45 +30,49 @@ namespace VTFLib
 	PWriteTellProc pWriteTellProc = 0;
 }
 
+// awkward casts to trick compiler because ISO C++ actually disallows
+// casting function pointers from/to data pointers
 VTFLIB_API vlVoid vlSetProc(VLProc Proc, vlVoid *pProc)
 {
 	switch(Proc)
 	{
 	case PROC_READ_CLOSE:
-		pReadCloseProc = (PReadCloseProc)pProc;
+		pReadCloseProc = *(PReadCloseProc*)&pProc;
 		break;
 	case PROC_READ_OPEN:
-		pReadOpenProc = (PReadOpenProc)pProc;
+		pReadOpenProc = *(PReadOpenProc*)&pProc;
 		break;
 	case PROC_READ_READ:
-		pReadReadProc = (PReadReadProc)pProc;
+		pReadReadProc = *(PReadReadProc*)&pProc;
 		break;
 	case PROC_READ_SEEK:
-		pReadSeekProc = (PReadSeekProc)pProc;
+		pReadSeekProc = *(PReadSeekProc*)&pProc;
 		break;
 	case PROC_READ_SIZE:
-		pReadSizeProc = (PReadSizeProc)pProc;
+		pReadSizeProc = *(PReadSizeProc*)&pProc;
 		break;
 	case PROC_READ_TELL:
-		pReadTellProc = (PReadTellProc)pProc;
+		pReadTellProc = *(PReadTellProc*)&pProc;
 		break;
 	case PROC_WRITE_CLOSE:
-		pWriteCloseProc = (PWriteCloseProc)pProc;
+		pWriteCloseProc = *(PWriteCloseProc*)&pProc;
 		break;
 	case PROC_WRITE_OPEN:
-		pWriteOpenProc = (PWriteOpenProc)pProc;
+		pWriteOpenProc = *(PWriteOpenProc*)&pProc;
 		break;
 	case PROC_WRITE_WRITE:
-		pWriteWriteProc = (PWriteWriteProc)pProc;
+		pWriteWriteProc = *(PWriteWriteProc*)&pProc;
 		break;
 	case PROC_WRITE_SEEK:
-		pWriteSeekProc = (PWriteSeekProc)pProc;
+		pWriteSeekProc = *(PWriteSeekProc*)&pProc;
 		break;
 	case PROC_WRITE_SIZE:
-		pWriteSizeProc = (PWriteSizeProc)pProc;
+		pWriteSizeProc = *(PWriteSizeProc*)&pProc;
 		break;
 	case PROC_WRITE_TELL:
-		pWriteTellProc = (PWriteTellProc)pProc;
+		pWriteTellProc = *(PWriteTellProc*)&pProc;
+		break;
+	case PROC_COUNT:
 		break;
 	}
 }
@@ -78,29 +82,29 @@ VTFLIB_API vlVoid *vlGetProc(VLProc Proc)
 	switch(Proc)
 	{
 	case PROC_READ_CLOSE:
-		return pReadCloseProc;
+		return *(void**)&pReadCloseProc;
 	case PROC_READ_OPEN:
-		return pReadOpenProc;
+		return *(void**)&pReadOpenProc;
 	case PROC_READ_READ:
-		return pReadReadProc;
+		return *(void**)&pReadReadProc;
 	case PROC_READ_SEEK:
-		return pReadSeekProc;
+		return *(void**)&pReadSeekProc;
 	case PROC_READ_SIZE:
-		return pReadSizeProc;
+		return *(void**)&pReadSizeProc;
 	case PROC_READ_TELL:
-		return pReadTellProc;
+		return *(void**)&pReadTellProc;
 	case PROC_WRITE_CLOSE:
-		return pWriteCloseProc;
+		return *(void**)&pWriteCloseProc;
 	case PROC_WRITE_OPEN:
-		return pWriteOpenProc;
+		return *(void**)&pWriteOpenProc;
 	case PROC_WRITE_WRITE:
-		return pWriteWriteProc;
+		return *(void**)&pWriteWriteProc;
 	case PROC_WRITE_SEEK:
-		return pWriteSeekProc;
+		return *(void**)&pWriteSeekProc;
 	case PROC_WRITE_SIZE:
-		return pWriteSizeProc;
+		return *(void**)&pWriteSizeProc;
 	case PROC_WRITE_TELL:
-		return pWriteTellProc;
+		return *(void**)&pWriteTellProc;
 	default:
 		return 0;
 	}

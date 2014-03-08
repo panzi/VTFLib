@@ -24,7 +24,7 @@ namespace VTFLib
 			class CFileWriter : public IWriter
 			{
 			private:
-				HANDLE hFile;
+				vlFile hFile;
 				vlChar *cFileName;
 
 			public:
@@ -37,13 +37,13 @@ namespace VTFLib
 				virtual vlBool Open();
 				virtual vlVoid Close();
 
-				virtual vlUInt GetStreamSize() const;
-				virtual vlUInt GetStreamPointer() const;
+				virtual vlSSize GetStreamSize() const;
+				virtual vlSSize GetStreamPointer() const;
 
-				virtual vlUInt Seek(vlLong lOffset, vlUInt uiMode);
+				virtual vlSSize Seek(vlOffset lOffset, VLSeekMode uiMode);
 
 				virtual vlBool Write(vlChar cChar);
-				virtual vlUInt Write(vlVoid *vData, vlUInt uiBytes);
+				virtual vlSize Write(vlVoid *vData, vlSize uiBytes);
 			};
 		}
 	}

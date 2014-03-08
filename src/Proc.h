@@ -36,26 +36,19 @@ typedef enum tagVLProc
 	PROC_COUNT
 } VLProc;
 
-typedef enum tagVLSeekMode
-{
-	SEEK_MODE_BEGIN = 0,
-	SEEK_MODE_CURRENT,
-	SEEK_MODE_END
-} VLSeekMode;
-
 typedef vlVoid (*PReadCloseProc)(vlVoid *);
 typedef vlBool (*PReadOpenProc) (vlVoid *);
-typedef vlUInt (*PReadReadProc)  (vlVoid *, vlUInt, vlVoid *);
-typedef vlUInt (*PReadSeekProc) (vlLong, VLSeekMode, vlVoid *);
-typedef vlUInt (*PReadSizeProc) (vlVoid *);
-typedef vlUInt (*PReadTellProc) (vlVoid *);
+typedef vlSize (*PReadReadProc)  (vlVoid *, vlSize, vlVoid *);
+typedef vlSSize (*PReadSeekProc) (vlOffset, VLSeekMode, vlVoid *);
+typedef vlSSize (*PReadSizeProc) (vlVoid *);
+typedef vlSSize (*PReadTellProc) (vlVoid *);
 
 typedef vlVoid (*PWriteCloseProc)(vlVoid *);
 typedef vlBool (*PWriteOpenProc) (vlVoid *);
-typedef vlUInt (*PWriteWriteProc)  (vlVoid *, vlUInt, vlVoid *);
-typedef vlUInt (*PWriteSeekProc) (vlLong, VLSeekMode, vlVoid *);
-typedef vlUInt (*PWriteSizeProc) (vlVoid *);
-typedef vlUInt (*PWriteTellProc) (vlVoid *);
+typedef vlSize (*PWriteWriteProc) (vlVoid *, vlSize, vlVoid *);
+typedef vlSSize (*PWriteSeekProc) (vlOffset, VLSeekMode, vlVoid *);
+typedef vlSSize (*PWriteSizeProc) (vlVoid *);
+typedef vlSSize (*PWriteTellProc) (vlVoid *);
 
 #ifdef __cplusplus
 }

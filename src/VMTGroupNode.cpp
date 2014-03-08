@@ -9,6 +9,8 @@
  * version.
  */
 
+#include <string.h>
+
 #include "VMTGroupNode.h"
 
 using namespace VTFLib::Nodes;
@@ -135,7 +137,7 @@ CVMTNode *CVMTGroupNode::GetNode(const vlChar *cName) const
 {
 	for(CVMTNodeList::const_iterator it = this->VMTNodeList->begin(); it != this->VMTNodeList->end(); ++it)
 	{
-		if(stricmp(cName, (*it)->GetName()) == 0)
+		if(strcasecmp(cName, (*it)->GetName()) == 0)
 		{
 			return *it;
 		}

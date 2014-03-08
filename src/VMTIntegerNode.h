@@ -34,7 +34,7 @@ namespace VTFLib
 			virtual vlVoid SetValue(const vlChar *cValue);
 
 			vlVoid SetValue(vlInt iValue);
-			const vlInt GetValue() const;
+			vlInt GetValue() const;
 
 			virtual VMTNodeType GetType() const;
 			virtual CVMTNode *Clone() const;

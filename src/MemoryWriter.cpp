@@ -9,13 +9,15 @@
  * version.
  */
 
+#include <string.h>
+
 #include "VTFLib.h"
 #include "MemoryWriter.h"
 
 using namespace VTFLib;
 using namespace VTFLib::IO::Writers;
 
-CMemoryWriter::CMemoryWriter(vlVoid *vData, vlUInt uiBufferSize)
+CMemoryWriter::CMemoryWriter(vlVoid *vData, vlSize uiBufferSize)
 {
 	this->bOpened = vlFalse;
 
@@ -57,7 +59,7 @@ vlVoid CMemoryWriter::Close()
 	this->bOpened = vlFalse;
 }
 
-vlUInt CMemoryWriter::GetStreamSize() const
+vlSSize CMemoryWriter::GetStreamSize() const
 {
 	/*if(!this->bOpened)
 	{
@@ -67,7 +69,7 @@ vlUInt CMemoryWriter::GetStreamSize() const
 	return this->uiLength;
 }
 
-vlUInt CMemoryWriter::GetStreamPointer() const
+vlSSize CMemoryWriter::GetStreamPointer() const
 {
 	if(!this->bOpened)
 	{
@@ -77,7 +79,7 @@ vlUInt CMemoryWriter::GetStreamPointer() const
 	return this->uiPointer;
 }
 
-vlUInt CMemoryWriter::Seek(vlLong lOffset, vlUInt uiMode)
+vlSSize CMemoryWriter::Seek(vlOffset lOffset, VLSeekMode uiMode)
 {
 	if(!this->bOpened)
 	{
@@ -86,13 +88,13 @@ vlUInt CMemoryWriter::Seek(vlLong lOffset, vlUInt uiMode)
 
 	switch(uiMode)
 	{
-		case FILE_BEGIN:
+		case SEEK_MODE_BEGIN:
 			this->uiPointer = 0;
 			break;
-		case FILE_CURRENT:
+		case SEEK_MODE_CURRENT:
 
 			break;
-		case FILE_END:
+		case SEEK_MODE_END:
 			this->uiPointer = this->uiLength;
 			break;
 	}
@@ -137,7 +139,7 @@ vlBool CMemoryWriter::Write(vlChar cChar)
 	}
 }
 
-vlUInt CMemoryWriter::Write(vlVoid *vData, vlUInt uiBytes)
+vlSize CMemoryWriter::Write(vlVoid *vData, vlSize uiBytes)
 {
 	if(!this->bOpened)
 	{

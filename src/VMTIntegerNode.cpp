@@ -48,7 +48,7 @@ vlVoid CVMTIntegerNode::SetValue(vlInt iValue)
 	this->iValue = iValue;
 }
 
-const vlInt CVMTIntegerNode::GetValue() const
+vlInt CVMTIntegerNode::GetValue() const
 {
 	return this->iValue;
 }

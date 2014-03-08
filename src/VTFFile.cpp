@@ -9,6 +9,8 @@
  * version.
  */
 
+#include <string.h>
+
 #include "VTFLib.h"
 #include "VTFFile.h"
 #include "VTFFormat.h"
@@ -18,6 +20,7 @@
 // Note: VTF creation requires nvDXTLib and has been
 //       tested with version 8.31.1127.1645, availible here:
 //       http://developer.nvidia.com/object/dds_utilities_legacy.html
+// TODO: Use libtxc_dxtn under Linux.
 
 #ifdef USE_NVDXT
 	// Disable all the warnings in the nvDXTLib.

@@ -9,6 +9,8 @@
  * version.
  */
 
+#include <string.h>
+
 #include "VMTNode.h"
 
 using namespace VTFLib::Nodes;
