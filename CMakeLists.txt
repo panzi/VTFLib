@@ -35,10 +35,6 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
 	add_definitions(-D_FILE_OFFSET_BITS=64)
 endif()
 
-if(NOT DEFINED CMAKE_INSTALL_LIBDIR)
-	set(CMAKE_INSTALL_LIBDIR "lib")
-endif()
-
 # for config.h
 include_directories("${PROJECT_BINARY_DIR}/src")
 
