@@ -17,8 +17,8 @@
 	\brief Error handling class header.
 */
 
-#ifndef ERROR_H
-#define ERROR_H
+#ifndef VTFLIB_ERROR_H
+#define VTFLIB_ERROR_H
 
 #include "stdafx.h"
 

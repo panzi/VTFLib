@@ -15,8 +15,8 @@
 // Format:	16 Bit: seeeeeeeemmmmmmm
 //			32 Bit: seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm
 
-#ifndef FLOAT16_H
-#define FLOAT16_H
+#ifndef VTFLIB_FLOAT16_H
+#define VTFLIB_FLOAT16_H
 
 #define SFLOAT16_MSB 1 // Most Significant Byte (1 for bigendian)
 #define SFLOAT16_LSB 0 // Least Significant Byte (0 for bigendian)

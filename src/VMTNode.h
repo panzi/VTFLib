@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef VMTNODE_H
-#define VMTNODE_H
+#ifndef VTFLIB_VMTNODE_H
+#define VTFLIB_VMTNODE_H
 
 #include "stdafx.h"
 

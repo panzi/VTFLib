@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef PROCWRITER_H
-#define PROCWRITER_H
+#ifndef VTFLIB_PROCWRITER_H
+#define VTFLIB_PROCWRITER_H
 
 #include "stdafx.h"
 #include "Writer.h"

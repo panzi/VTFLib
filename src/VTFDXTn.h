@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef VTFDXTN_H
-#define VTFDXTN_H
+#ifndef VTFLIB_VTFDXTN_H
+#define VTFLIB_VTFDXTN_H
 
 #include "stdafx.h"
 

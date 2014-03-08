@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef VMTSINGLENODE_H
-#define VMTSINGLENODE_H
+#ifndef VTFLIB_VMTSINGLENODE_H
+#define VTFLIB_VMTSINGLENODE_H
 
 #include "stdafx.h"
 #include "VMTValueNode.h"

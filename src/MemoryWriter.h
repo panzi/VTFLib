@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef MEMORYWRITER_H
-#define MEMORYWRITER_H
+#ifndef VTFLIB_MEMORYWRITER_H
+#define VTFLIB_MEMORYWRITER_H
 
 #include "stdafx.h"
 #include "Writer.h"

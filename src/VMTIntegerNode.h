@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef VMTINTEGERNODE_H
-#define VMTINTEGERNODE_H
+#ifndef VTFLIB_VMTINTEGERNODE_H
+#define VTFLIB_VMTINTEGERNODE_H
 
 #include "stdafx.h"
 #include "VMTValueNode.h"

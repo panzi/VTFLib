@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef VTFWRAPPER_H
-#define VTFWRAPPER_H
+#ifndef VTFLIB_VTFWRAPPER_H
+#define VTFLIB_VTFWRAPPER_H
 
 #include "stdafx.h"
 

@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef VMTVALUENODE_H
-#define VMTVALUENODE_H
+#ifndef VTFLIB_VMTVALUENODE_H
+#define VTFLIB_VMTVALUENODE_H
 
 #include "stdafx.h"
 #include "VMTNode.h"

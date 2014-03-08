@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef FILEWRITER_H
-#define FILEWRITER_H
+#ifndef VTFLIB_FILEWRITER_H
+#define VTFLIB_FILEWRITER_H
 
 #include "stdafx.h"
 #include "Writer.h"

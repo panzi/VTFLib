@@ -96,8 +96,8 @@
 */
 
 
-#ifndef VTFLIB_H
-#define VTFLIB_H
+#ifndef VTFLIB_VTFLIB_H
+#define VTFLIB_VTFLIB_H
 
 #include "stdafx.h"
 #include "Error.h"

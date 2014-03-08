@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef VMTNODES_H
-#define VMTNODES_H
+#ifndef VTFLIB_VMTNODES_H
+#define VTFLIB_VMTNODES_H
 
 #include "VMTNode.h"
 #include "VMTGroupNode.h"

@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef FILEREADER_H
-#define FILEREADER_H
+#ifndef VTFLIB_FILEREADER_H
+#define VTFLIB_FILEREADER_H
 
 #include "stdafx.h"
 #include "Reader.h"

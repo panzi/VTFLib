@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef PROC_H
-#define PROC_H
+#ifndef VTFLIB_PROC_H
+#define VTFLIB_PROC_H
 
 #include "stdafx.h"
 #include "Error.h"

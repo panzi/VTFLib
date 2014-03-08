@@ -17,8 +17,8 @@
 	\brief Header file for the VTFFile class.
 */
 
-#ifndef VTFFILE_H
-#define VTFFILE_H
+#ifndef VTFLIB_VTFFILE_H
+#define VTFLIB_VTFFILE_H
 
 #include "stdafx.h"
 #include "Readers.h"

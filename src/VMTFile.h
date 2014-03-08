@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef VMTFILE_H
-#define VMTFILE_H
+#ifndef VTFLIB_VMTFILE_H
+#define VTFLIB_VMTFILE_H
 
 #include "stdafx.h"
 #include "Readers.h"

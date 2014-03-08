@@ -31,8 +31,8 @@
 					- Image data (in relevant format)
 */
 
-#ifndef VTFFORMAT_H
-#define VTFFORMAT_H
+#ifndef VTFLIB_VTFFORMAT_H
+#define VTFLIB_VTFFORMAT_H
 
 #include "stdafx.h"
 

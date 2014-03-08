@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef PROCREADER_H
-#define PROCREADER_H
+#ifndef VTFLIB_PROCREADER_H
+#define VTFLIB_PROCREADER_H
 
 #include "stdafx.h"
 #include "Reader.h"

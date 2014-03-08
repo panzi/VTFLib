@@ -9,8 +9,8 @@
  * version.
  */
 
-#ifndef MEMORYREADER_H
-#define MEMORYREADER_H
+#ifndef VTFLIB_MEMORYREADER_H
+#define VTFLIB_MEMORYREADER_H
 
 #include "stdafx.h"
 #include "Reader.h"

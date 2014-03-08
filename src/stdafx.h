@@ -17,8 +17,8 @@
 	\brief Application framework header plus VTFLib custom data types.
 */
 
-#ifndef STDAFX_H
-#define STDAFX_H
+#ifndef VTFLIB_STDAFX_H
+#define VTFLIB_STDAFX_H
 
 #if defined(_WIN32) || defined(_WIN64)
 #	ifndef __WINDOWS__

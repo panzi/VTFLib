@@ -19,8 +19,8 @@
 	A small collection of math functions and defines used by VTFLib.
 */
 
-#ifndef VTFMATHLIB_H
-#define VTFMATHLIB_H
+#ifndef VTFLIB_VTFMATHLIB_H
+#define VTFLIB_VTFMATHLIB_H
 
 #include "stdafx.h"
 
