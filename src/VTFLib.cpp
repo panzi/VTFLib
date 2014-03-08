@@ -169,9 +169,10 @@ VTFLIB_API vlInt vlGetInteger(VTFLibOption Option)
 
 	case VTFLIB_VMT_PARSE_MODE:
 		return (vlInt)uiVMTParseMode;
-	}
 
-	return 0;
+	default:
+		return 0;
+	}
 }
 
 VTFLIB_API vlVoid vlSetInteger(VTFLibOption Option, vlInt iValue)
@@ -233,6 +234,9 @@ VTFLIB_API vlVoid vlSetInteger(VTFLibOption Option, vlInt iValue)
 			return;
 		uiVMTParseMode = (vlUInt)iValue;
 		break;
+
+	default:
+		break;
 	}
 }
 
@@ -261,9 +265,10 @@ VTFLIB_API vlSingle vlGetFloat(VTFLibOption Option)
 		return sXSharpenStrength;
 	case VTFLIB_XSHARPEN_THRESHOLD:
 		return sXSharpenThreshold;
-	}
 
-	return 0.0f;
+	default:
+		return 0.0f;
+	}
 }
 
 VTFLIB_API vlVoid vlSetFloat(VTFLibOption Option, vlSingle sValue)
@@ -326,26 +331,8 @@ VTFLIB_API vlVoid vlSetFloat(VTFLibOption Option, vlSingle sValue)
 			sValue = 255.0f;
 		sXSharpenThreshold = sValue;
 		break;
-	}
-}
 
-//
-// DllMain()
-// DLL entry point.
-//
-BOOL APIENTRY DllMain(HANDLE hModule, DWORD dwReason, LPVOID lpReserved)
-{
-	switch(dwReason)
-	{
-	case DLL_PROCESS_ATTACH:
-		break;
-	case DLL_THREAD_ATTACH:
-		break;
-	case DLL_THREAD_DETACH:
-		break;
-	case DLL_PROCESS_DETACH:
-		vlShutdown();
+	default:
 		break;
 	}
-    return TRUE;
 }
