@@ -31,7 +31,7 @@ namespace VTFLib
 			The Error handling class allows you to aceess a text description 
 			for the last error encountered.
 		*/
-		class CError
+		class VTFLIB_API CError
 		{
 		private:
 			vlChar *cErrorMessage;

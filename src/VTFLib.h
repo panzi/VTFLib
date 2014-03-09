@@ -112,7 +112,7 @@ namespace VTFLib
 	typedef std::vector<VTFLib::CVMTFile *> CMaterialVector;
 
 	extern vlBool bInitialized;
-	extern Diagnostics::CError LastError;
+	VTFLIB_API extern Diagnostics::CError LastError;
 
 	extern CVTFFile *Image;
 	extern CImageVector *ImageVector;
