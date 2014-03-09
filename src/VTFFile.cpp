@@ -3075,7 +3075,7 @@ vlUInt CVTFFile::ComputeDataOffset(vlUInt uiFrame, vlUInt uiFace, vlUInt uiSlice
 // Converts data from the source format to RGBA8888 format. Data is read from *src
 // and written to *dst. Width and height are needed to it knows how much data to process
 //-----------------------------------------------------------------------------------------------------
-vlBool CVTFFile::ConvertToRGBA8888(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat SourceFormat)
+vlBool CVTFFile::ConvertToRGBA8888(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat SourceFormat)
 {
 	return CVTFFile::Convert(lpSource, lpDest, uiWidth, uiHeight, SourceFormat, IMAGE_FORMAT_RGBA8888);
 }
@@ -3090,13 +3090,13 @@ vlBool CVTFFile::ConvertToRGBA8888(vlByte *lpSource, vlByte *lpDest, vlUInt uiWi
 // Converts data from the DXT1 to RGBA8888 format. Data is read from *src
 // and written to *dst. Width and height are needed to it knows how much data to process
 //-----------------------------------------------------------------------------------------------------
-vlBool CVTFFile::DecompressDXT1(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight)
+vlBool CVTFFile::DecompressDXT1(const vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight)
 {
-	vlUInt		x, y, i, j, k, Select;
-	vlByte		*Temp;
-	Colour565	*color_0, *color_1;
-	Colour8888	colours[4], *col;
-	vlUInt		bitmask, Offset;
+	vlUInt			x, y, i, j, k, Select;
+	const vlByte	*Temp;
+	Colour565		*color_0, *color_1;
+	Colour8888		colours[4], *col;
+	vlUInt			bitmask, Offset;
 
 	vlByte nBpp = 4;						// bytes per pixel (4 channels (RGBA))
 	vlByte nBpc = 1;						// bytes per channel (1 byte per channel)
@@ -3185,14 +3185,14 @@ vlBool CVTFFile::DecompressDXT1(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt
 // Converts data from the DXT3 to RGBA8888 format. Data is read from *src
 // and written to *dst. Width and height are needed to it knows how much data to process
 //-----------------------------------------------------------------------------------------------------
-vlBool CVTFFile::DecompressDXT3(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight)
+vlBool CVTFFile::DecompressDXT3(const vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight)
 {
-	vlUInt		x, y, i, j, k, Select;
-	vlByte		*Temp;
-	Colour565	*color_0, *color_1;
-	Colour8888	colours[4], *col;
-	vlUInt		bitmask, Offset;
-	vlUShort	word;
+	vlUInt			x, y, i, j, k, Select;
+	const vlByte	*Temp;
+	Colour565		*color_0, *color_1;
+	Colour8888		colours[4], *col;
+	vlUInt			bitmask, Offset;
+	vlUShort		word;
 	DXTAlphaBlockExplicit *alpha;
 
 	vlByte nBpp = 4;						// bytes per pixel (4 channels (RGBA))
@@ -3280,15 +3280,15 @@ vlBool CVTFFile::DecompressDXT3(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt
 // Converts data from the DXT5 to RGBA8888 format. Data is read from *src
 // and written to *dst. Width and height are needed to it knows how much data to process
 //-----------------------------------------------------------------------------------------------------
-vlBool CVTFFile::DecompressDXT5(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight)
+vlBool CVTFFile::DecompressDXT5(const vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight)
 {
-	vlUInt		x, y, i, j, k, Select;
-	vlByte		*Temp;
-	Colour565	*color_0, *color_1;
-	Colour8888	colours[4], *col;
-	vlUInt		bitmask, Offset;
-	vlByte		alphas[8], *alphamask;
-	vlUInt		bits;
+	vlUInt			x, y, i, j, k, Select;
+	const vlByte	*Temp, *alphamask;
+	Colour565		*color_0, *color_1;
+	Colour8888		colours[4], *col;
+	vlUInt			bitmask, Offset;
+	vlByte			alphas[8];
+	vlUInt			bits;
 
 	vlByte nBpp = 4;						// bytes per pixel (4 channels (RGBA))
 	vlByte nBpc = 1;						// bytes per channel (1 byte per channel)
@@ -3419,7 +3419,7 @@ vlBool CVTFFile::DecompressDXT5(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt
 // ConvertFromRGBA8888()
 // Convert input image data (lpSource) to output image data (lpDest) of format DestFormat.
 //
-vlBool CVTFFile::ConvertFromRGBA8888(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat DestFormat)
+vlBool CVTFFile::ConvertFromRGBA8888(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat DestFormat)
 {
 	return CVTFFile::Convert(lpSource, lpDest, uiWidth, uiHeight, IMAGE_FORMAT_RGBA8888, DestFormat);
 }
@@ -3429,7 +3429,7 @@ vlBool CVTFFile::ConvertFromRGBA8888(vlByte *lpSource, vlByte *lpDest, vlUInt ui
 // Compress input image data (lpSource) to output image data (lpDest) of format DestFormat
 // where DestFormat is of format DXTn.  Uses NVidia DXT library.
 //
-vlBool CVTFFile::CompressDXTn(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat DestFormat)
+vlBool CVTFFile::CompressDXTn(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat DestFormat)
 {
 #ifdef USE_NVDXT
 	nvCompressionOptions Options = nvCompressionOptions();
@@ -3795,7 +3795,7 @@ vlVoid Transform(TransformProc pTransform1, TransformProc pTransform2, T SR, T S
 
 // Convert source to dest using required storage requirments (hence the template).
 template<typename T, typename U>
-vlBool ConvertTemplated(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, const SVTFImageConvertInfo& SourceInfo, const SVTFImageConvertInfo& DestInfo)
+vlBool ConvertTemplated(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, const SVTFImageConvertInfo& SourceInfo, const SVTFImageConvertInfo& DestInfo)
 {
 	vlUInt16 uiSourceRShift = 0, uiSourceGShift = 0, uiSourceBShift = 0, uiSourceAShift = 0;
 	vlUInt16 uiSourceRMask = 0, uiSourceGMask = 0, uiSourceBMask = 0, uiSourceAMask = 0;
@@ -3809,11 +3809,11 @@ vlBool ConvertTemplated(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt
 	// If we are in the FP16 HDR format we will need a log average.
 	if(SourceInfo.Format == IMAGE_FORMAT_RGBA16161616F)
 	{
-		vlByte* lpFPSource = lpSource;
+		const vlByte* lpFPSource = lpSource;
 
 		sHDRLogAverageLuminance = 0.0f;
 
-		vlByte *lpFPSourceEnd = lpFPSource + (uiWidth * uiHeight * SourceInfo.uiBytesPerPixel);
+		const vlByte *lpFPSourceEnd = lpFPSource + (uiWidth * uiHeight * SourceInfo.uiBytesPerPixel);
 		for(; lpFPSource < lpFPSourceEnd; lpFPSource += SourceInfo.uiBytesPerPixel)
 		{
 			vlUInt16* p = (vlUInt16*)lpFPSource;
@@ -3826,7 +3826,7 @@ vlBool ConvertTemplated(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt
 		sHDRLogAverageLuminance = exp(sHDRLogAverageLuminance / (vlSingle)(uiWidth * uiHeight));
 	}
 
-	vlByte *lpSourceEnd = lpSource + (uiWidth * uiHeight * SourceInfo.uiBytesPerPixel);
+	const vlByte *lpSourceEnd = lpSource + (uiWidth * uiHeight * SourceInfo.uiBytesPerPixel);
 	for(; lpSource < lpSourceEnd; lpSource += SourceInfo.uiBytesPerPixel, lpDest += DestInfo.uiBytesPerPixel)
 	{
 		// read source into single variable
@@ -3913,7 +3913,7 @@ vlBool ConvertTemplated(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt
 	return vlTrue;
 }
 
-vlBool CVTFFile::Convert(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat SourceFormat, VTFImageFormat DestFormat)
+vlBool CVTFFile::Convert(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat SourceFormat, VTFImageFormat DestFormat)
 {
 	assert(lpSource != 0);
 	assert(lpDest != 0);
@@ -3940,7 +3940,7 @@ vlBool CVTFFile::Convert(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUIn
 
 	if(SourceFormat == IMAGE_FORMAT_RGB888 && DestFormat == IMAGE_FORMAT_RGBA8888)
 	{
-		vlByte *lpLast = lpSource + CVTFFile::ComputeImageSize(uiWidth, uiHeight, 1, SourceFormat);
+		const vlByte *lpLast = lpSource + CVTFFile::ComputeImageSize(uiWidth, uiHeight, 1, SourceFormat);
 		for(; lpSource < lpLast; lpSource += 3, lpDest += 4)
 		{
 			lpDest[0] = lpSource[0];
@@ -3953,7 +3953,7 @@ vlBool CVTFFile::Convert(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUIn
 
 	if(SourceFormat == IMAGE_FORMAT_RGBA8888 && DestFormat == IMAGE_FORMAT_RGB888)
 	{
-		vlByte *lpLast = lpSource + CVTFFile::ComputeImageSize(uiWidth, uiHeight, 1, SourceFormat);
+		const vlByte *lpLast = lpSource + CVTFFile::ComputeImageSize(uiWidth, uiHeight, 1, SourceFormat);
 		for(; lpSource < lpLast; lpSource += 4, lpDest += 3)
 		{
 			lpDest[0] = lpSource[0];
@@ -3966,13 +3966,14 @@ vlBool CVTFFile::Convert(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUIn
 	// Do general convertions.
 	if(SourceInfo.bIsCompressed || DestInfo.bIsCompressed)
 	{
-		vlByte *lpSourceRGBA = lpSource;
+		vlByte *lpTemp = 0;
+		const vlByte *lpSourceRGBA = lpSource;
 		vlBool bResult = vlTrue;
 
 		// allocate temp data for intermittent conversions
 		if(SourceFormat != IMAGE_FORMAT_RGBA8888)
 		{
-			lpSourceRGBA = new vlByte[CVTFFile::ComputeImageSize(uiWidth, uiHeight, 1, IMAGE_FORMAT_RGBA8888)];
+			lpTemp = new vlByte[CVTFFile::ComputeImageSize(uiWidth, uiHeight, 1, IMAGE_FORMAT_RGBA8888)];
 		}
 
 		// decompress the source or convert it to RGBA for compressing
@@ -3982,16 +3983,20 @@ vlBool CVTFFile::Convert(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUIn
 			break;
 		case IMAGE_FORMAT_DXT1:
 		case IMAGE_FORMAT_DXT1_ONEBITALPHA:
-			bResult = CVTFFile::DecompressDXT1(lpSource, lpSourceRGBA, uiWidth, uiHeight);
+			bResult = CVTFFile::DecompressDXT1(lpSource, lpTemp, uiWidth, uiHeight);
+			lpSourceRGBA = lpTemp;
 			break;
 		case IMAGE_FORMAT_DXT3:
-			bResult = CVTFFile::DecompressDXT3(lpSource, lpSourceRGBA, uiWidth, uiHeight);
+			bResult = CVTFFile::DecompressDXT3(lpSource, lpTemp, uiWidth, uiHeight);
+			lpSourceRGBA = lpTemp;
 			break;
 		case IMAGE_FORMAT_DXT5:
-			bResult = CVTFFile::DecompressDXT5(lpSource, lpSourceRGBA, uiWidth, uiHeight);
+			bResult = CVTFFile::DecompressDXT5(lpSource, lpTemp, uiWidth, uiHeight);
+			lpSourceRGBA = lpTemp;
 			break;
 		default:
-			bResult = CVTFFile::Convert(lpSource, lpSourceRGBA, uiWidth, uiHeight, SourceFormat, IMAGE_FORMAT_RGBA8888);
+			bResult = CVTFFile::Convert(lpSource, lpTemp, uiWidth, uiHeight, SourceFormat, IMAGE_FORMAT_RGBA8888);
+			lpSourceRGBA = lpTemp;
 			break;
 		}
 
@@ -4013,10 +4018,7 @@ vlBool CVTFFile::Convert(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUIn
 		}
 
 		// free temp data
-		if(lpSourceRGBA != lpSource)
-		{
-			delete []lpSourceRGBA;
-		}
+		delete []lpTemp;
 
 		return bResult;
 	}
@@ -4078,7 +4080,7 @@ vlBool CVTFFile::Convert(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUIn
 // Convert source data (in format RGBA8888) to a normal map.  If dest data is null then the
 // result is copied back into the source data.
 //
-vlBool CVTFFile::ConvertToNormalMap(vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiWidth, vlUInt uiHeight, VTFKernelFilter KernelFilter, VTFHeightConversionMethod HeightConversionMethod, VTFNormalAlphaResult NormalAlphaResult, vlByte bMinimumZ, vlSingle sScale, vlBool bWrap, vlBool bInvertX, vlBool bInvertY, vlBool bInvertZ)
+vlBool CVTFFile::ConvertToNormalMap(const vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiWidth, vlUInt uiHeight, VTFKernelFilter KernelFilter, VTFHeightConversionMethod HeightConversionMethod, VTFNormalAlphaResult NormalAlphaResult, vlByte bMinimumZ, vlSingle sScale, vlBool bWrap, vlBool bInvertX, vlBool bInvertY, vlBool bInvertZ)
 {
 	assert(KernelFilter >= 0 && KernelFilter < KERNEL_FILTER_COUNT);
 	assert(HeightConversionMethod >= 0 && HeightConversionMethod < HEIGHT_CONVERSION_METHOD_COUNT);
@@ -4131,7 +4133,7 @@ vlBool CVTFFile::ConvertToNormalMap(vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA
 #endif
 }
 
-vlBool CVTFFile::Resize(vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiSourceWidth, vlUInt uiSourceHeight, vlUInt uiDestWidth, vlUInt uiDestHeight, VTFMipmapFilter ResizeFilter, VTFSharpenFilter SharpenFilter)
+vlBool CVTFFile::Resize(const vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiSourceWidth, vlUInt uiSourceHeight, vlUInt uiDestWidth, vlUInt uiDestHeight, VTFMipmapFilter ResizeFilter, VTFSharpenFilter SharpenFilter)
 {
 	assert(ResizeFilter >= 0 && ResizeFilter < MIPMAP_FILTER_COUNT);
 	assert(SharpenFilter >= 0 && SharpenFilter < SHARPEN_FILTER_COUNT);
@@ -4220,7 +4222,7 @@ vlVoid CVTFFile::CorrectImageGamma(vlByte *lpImageDataRGBA8888, vlUInt uiWidth, 
 // ComputeImageReflectivity()
 // Compute the image data reflectivity value.
 //
-vlVoid CVTFFile::ComputeImageReflectivity(vlByte *lpImageDataRGBA8888, vlUInt uiWidth, vlUInt uiHeight, vlSingle &sX, vlSingle &sY, vlSingle &sZ)
+vlVoid CVTFFile::ComputeImageReflectivity(const vlByte *lpImageDataRGBA8888, vlUInt uiWidth, vlUInt uiHeight, vlSingle &sX, vlSingle &sY, vlSingle &sZ)
 {
 	sX = sY = sZ = 0.0f;
 

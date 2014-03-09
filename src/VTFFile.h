@@ -641,7 +641,7 @@ namespace VTFLib
 			\param SourceFormat is the image format of the source data.
 			\return true on sucessful conversion, otherwise false.
 		*/
-		static vlBool ConvertToRGBA8888(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat SourceFormat);
+		static vlBool ConvertToRGBA8888(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat SourceFormat);
 
 		//! Convert an image from RGBA8888 format.
 		/*!
@@ -654,7 +654,7 @@ namespace VTFLib
 			\param DestFormat is the image format you wish to convert to.
 			\return true on sucessful conversion, otherwise false.
 		*/
-		static vlBool ConvertFromRGBA8888(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat DestFormat);
+		static vlBool ConvertFromRGBA8888(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat DestFormat);
 
 		//! Convert an image from any format to any format.
 		/*!
@@ -668,7 +668,7 @@ namespace VTFLib
 			\param DestFormat is the image format you wish to convert to.
 			\return true on sucessful conversion, otherwise false.
 		*/
-		static vlBool Convert(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat SourceFormat, VTFImageFormat DestFormat);
+		static vlBool Convert(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat SourceFormat, VTFImageFormat DestFormat);
 
 		//! Convert an image to a normal map.
 		/*!
@@ -688,7 +688,7 @@ namespace VTFLib
 			\param bInvertY sets if the normal map should be flipped along its Y axis (default false).
 			\return true on sucessful conversion, otherwise false.
 		*/
-		static vlBool ConvertToNormalMap(vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiWidth, vlUInt uiHeight, VTFKernelFilter KernelFilter = KERNEL_FILTER_3X3, VTFHeightConversionMethod HeightConversionMethod = HEIGHT_CONVERSION_METHOD_AVERAGE_RGB, VTFNormalAlphaResult NormalAlphaResult = NORMAL_ALPHA_RESULT_WHITE, vlByte bMinimumZ = 0, vlSingle sScale = 2.0f, vlBool bWrap = vlFalse, vlBool bInvertX = vlFalse, vlBool bInvertY = vlFalse, vlBool bInvertZ = vlFalse);
+		static vlBool ConvertToNormalMap(const vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiWidth, vlUInt uiHeight, VTFKernelFilter KernelFilter = KERNEL_FILTER_3X3, VTFHeightConversionMethod HeightConversionMethod = HEIGHT_CONVERSION_METHOD_AVERAGE_RGB, VTFNormalAlphaResult NormalAlphaResult = NORMAL_ALPHA_RESULT_WHITE, vlByte bMinimumZ = 0, vlSingle sScale = 2.0f, vlBool bWrap = vlFalse, vlBool bInvertX = vlFalse, vlBool bInvertY = vlFalse, vlBool bInvertZ = vlFalse);
 
 		//! Re-sizes an image.
 		/*!
@@ -704,17 +704,17 @@ namespace VTFLib
 			\param SharpenFilter is the image sharpening filter to use (default none).
 			\return true on sucessful re-size, otherwise false.
 		*/
-		static vlBool Resize(vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiSourceWidth, vlUInt uiSourceHeight, vlUInt uiDestWidth, vlUInt uiDestHeight, VTFMipmapFilter ResizeFilter = MIPMAP_FILTER_TRIANGLE, VTFSharpenFilter SharpenFilter = SHARPEN_FILTER_NONE);
+		static vlBool Resize(const vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiSourceWidth, vlUInt uiSourceHeight, vlUInt uiDestWidth, vlUInt uiDestHeight, VTFMipmapFilter ResizeFilter = MIPMAP_FILTER_TRIANGLE, VTFSharpenFilter SharpenFilter = SHARPEN_FILTER_NONE);
 
 	private:
 		
 		// DXTn format decompression functions
-		static vlBool DecompressDXT1(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight);
-		static vlBool DecompressDXT3(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight);
-		static vlBool DecompressDXT5(vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight);
+		static vlBool DecompressDXT1(const vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight);
+		static vlBool DecompressDXT3(const vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight);
+		static vlBool DecompressDXT5(const vlByte *src, vlByte *dst, vlUInt uiWidth, vlUInt uiHeight);
 
 		// DXTn format compression function
-		static vlBool CompressDXTn(vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat DestFormat);
+		static vlBool CompressDXTn(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth, vlUInt uiHeight, VTFImageFormat DestFormat);
 
 	public:
 
@@ -742,7 +742,7 @@ namespace VTFLib
 			\see GetReflectivity()
 			\see SetReflectivity()
 		*/
-		static vlVoid ComputeImageReflectivity(vlByte *lpImageDataRGBA8888, vlUInt uiWidth, vlUInt uiHeight, vlSingle &sX, vlSingle &sY, vlSingle &sZ);
+		static vlVoid ComputeImageReflectivity(const vlByte *lpImageDataRGBA8888, vlUInt uiWidth, vlUInt uiHeight, vlSingle &sX, vlSingle &sY, vlSingle &sZ);
 
 		static vlVoid FlipImage(vlByte *lpImageDataRGBA8888, vlUInt uiWidth, vlUInt uiHeight);		//!< Flips an image vertically along its X-axis.
 		static vlVoid MirrorImage(vlByte *lpImageDataRGBA8888, vlUInt uiWidth, vlUInt uiHeight);	//!< Flips an image horizontally along its Y-axis.
