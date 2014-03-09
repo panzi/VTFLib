@@ -24,7 +24,7 @@ if(MSVC)
 	endif()
 elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
 	# Update if necessary
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic -Werror -Wno-long-long -O2")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic -Werror -O2")
 endif()
 
 if(USE_NVDXT AND ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
@@ -32,7 +32,9 @@ if(USE_NVDXT AND ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 endif()
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-	add_definitions(-D_FILE_OFFSET_BITS=64)
+	# big file support (files > 2GB). makes off_t 64bit even on 32bit platforms and makes fseeko/ftello available.
+	set(VTFLIB_PC_CFLAGS "-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE")
+	add_definitions(${VTFLIB_PC_CFLAGS})
 endif()
 
 # for config.h

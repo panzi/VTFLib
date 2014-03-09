@@ -8,4 +8,4 @@ Description: Half-Life Texture Library
 Version: @VTFLIB_VERSION@
 URL: https://github.com/panzi/VTFLib
 Libs: -L${libdir} -l@VTFLIB_NAME@
-Cflags: -I${includedir}
+Cflags: -I${includedir} @VTFLIB_PC_CFLAGS@
