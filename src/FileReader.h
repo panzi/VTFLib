@@ -28,6 +28,7 @@ namespace VTFLib
 				vlChar *cFileName;
 
 			public:
+				CFileReader(vlFile hFile);
 				CFileReader(const vlChar *cFileName);
 				~CFileReader();
 

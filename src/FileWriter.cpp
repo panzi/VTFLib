@@ -17,6 +17,12 @@
 using namespace VTFLib;
 using namespace VTFLib::IO::Writers;
 
+CFileWriter::CFileWriter(vlFile hFile)
+{
+	this->hFile = hFile;
+	this->cFileName = 0;
+}
+
 CFileWriter::CFileWriter(const vlChar *cFileName)
 {
 	this->hFile = NULL;
