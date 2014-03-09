@@ -39,7 +39,8 @@ vlVoid CError::Set(const vlChar *cErrorMessage, vlBool bSystemError)
 	{
 		snprintf(cBuffer, sizeof(cBuffer), "Error:\n%s", cErrorMessage); 
 	}
-	
+
+	this->Clear();
 	this->cErrorMessage = new vlChar[strlen(cBuffer) + 1];
 	strcpy(this->cErrorMessage, cBuffer);
 }
