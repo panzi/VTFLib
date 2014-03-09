@@ -1136,7 +1136,7 @@ vlBool CVTFFile::Load(IO::Readers::IReader *Reader, vlBool bHeaderOnly)
 
 		if(FileHeader.HeaderSize > sizeof(SVTFHeader))
 		{
-			LastError.SetFormatted("File header size %d B is larger than the %d B maximum expected.", FileHeader.HeaderSize, sizeof(SVTFHeader));
+			LastError.SetFormatted("File header size %u B is larger than the %u B maximum expected.", FileHeader.HeaderSize, (vlUInt)sizeof(SVTFHeader));
 			throw 0;
 		}
 

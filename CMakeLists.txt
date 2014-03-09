@@ -36,6 +36,9 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
 	add_definitions(${VTFLIB_PC_CFLAGS})
 endif()
 
+# compiling the library now:
+add_definitions(-DVTFLIB_EXPORTS)
+
 # for config.h
 include_directories("${PROJECT_BINARY_DIR}/src")
 

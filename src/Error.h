@@ -47,7 +47,7 @@ namespace VTFLib
 			const vlChar *Get() const;
 
 			//! Set the error message buffer.
-			vlVoid SetFormatted(const vlChar *cFormat, ...);
+			vlVoid SetFormatted(const vlChar *cFormat, ...) VTFLIB_PRINTF(2,3);
 			vlVoid Set(const vlChar *cErrorMessage, vlBool bSystemError = vlFalse);
 		};
 	}
