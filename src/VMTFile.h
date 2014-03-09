@@ -52,11 +52,11 @@ namespace VTFLib
 		vlBool IsLoaded() const;
 
 		vlBool Load(const vlChar *cFileName);
-		vlBool Load(const vlVoid *lpData, vlUInt uiBufferSize);
+		vlBool Load(const vlVoid *lpData, vlSize uiBufferSize);
 		vlBool Load(vlVoid *pUserData);
 
 		vlBool Save(const vlChar *cFileName) const;
-		vlBool Save(vlVoid *lpData, vlUInt uiBufferSize, vlUInt &uiSize) const;
+		vlBool Save(vlVoid *lpData, vlSize uiBufferSize, vlSize &uiSize) const;
 		vlBool Save(vlVoid *pUserData) const;
 
 	private:

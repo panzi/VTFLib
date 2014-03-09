@@ -253,7 +253,7 @@ namespace VTFLib
 			\param bHeaderOnly sets whether to load just the VTF header or not (default false).
 			\return true on sucessful load, otherwise false.
 		*/
-		vlBool Load(const vlVoid *lpData, vlUInt uiBufferSize, vlBool bHeaderOnly = vlFalse);
+		vlBool Load(const vlVoid *lpData, vlSize uiBufferSize, vlBool bHeaderOnly = vlFalse);
 
 		//! Loads a VTF image using callback functions. 
 		/*!
@@ -284,7 +284,7 @@ namespace VTFLib
 			\param uiBufferSize is the size of the VTF file in bytes.
 			\return true on sucessful save, otherwise false.
 		*/
-		vlBool Save(vlVoid *lpData, vlUInt uiBufferSize, vlUInt &uiSize) const;
+		vlBool Save(vlVoid *lpData, vlSize uiBufferSize, vlSize &uiSize) const;
 
 		//! Save a VTF image using callback functions.
 		/*!

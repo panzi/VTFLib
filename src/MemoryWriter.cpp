@@ -99,21 +99,21 @@ vlSSize CMemoryWriter::Seek(vlOffset lOffset, VLSeekMode uiMode)
 			break;
 	}
 
-	vlLong lPointer = (vlLong)this->uiPointer + lOffset;
+	vlOffset lPointer = (vlOffset)this->uiPointer + lOffset;
 
 	if(lPointer < 0)
 	{
 		lPointer = 0;
 	}
 
-	if(lPointer > (vlLong)this->uiLength)
+	if(lPointer > (vlOffset)this->uiLength)
 	{
-		lPointer = (vlLong)this->uiLength;
+		lPointer = (vlOffset)this->uiLength;
 	}
 
-	this->uiPointer = (vlUInt)lPointer;
+	this->uiPointer = (vlSize)lPointer;
 
-	return this->uiPointer;
+	return (vlSSize)this->uiPointer;
 }
 
 vlBool CMemoryWriter::Write(vlChar cChar)

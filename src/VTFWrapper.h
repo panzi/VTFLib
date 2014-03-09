@@ -42,11 +42,11 @@ VTFLIB_API vlVoid vlImageDestroy();
 VTFLIB_API vlBool vlImageIsLoaded();
 
 VTFLIB_API vlBool vlImageLoad(const vlChar *cFileName, vlBool bHeaderOnly);
-VTFLIB_API vlBool vlImageLoadLump(const vlVoid *lpData, vlUInt uiBufferSize, vlBool bHeaderOnly);
+VTFLIB_API vlBool vlImageLoadLump(const vlVoid *lpData, vlSize uiBufferSize, vlBool bHeaderOnly);
 VTFLIB_API vlBool vlImageLoadProc(vlVoid *pUserData, vlBool bHeaderOnly);
 
 VTFLIB_API vlBool vlImageSave(const vlChar *cFileName);
-VTFLIB_API vlBool vlImageSaveLump(vlVoid *lpData, vlUInt uiBufferSize, vlUInt *uiSize);
+VTFLIB_API vlBool vlImageSaveLump(vlVoid *lpData, vlSize uiBufferSize, vlSize *uiSize);
 VTFLIB_API vlBool vlImageSaveProc(vlVoid *pUserData);
 
 //

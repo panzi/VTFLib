@@ -65,7 +65,7 @@ vlBool CVMTFile::Load(const vlChar *cFileName)
 	return this->Load(&reader);
 }
 
-vlBool CVMTFile::Load(const vlVoid *lpData, vlUInt uiBufferSize)
+vlBool CVMTFile::Load(const vlVoid *lpData, vlSize uiBufferSize)
 {
 	IO::Readers::CMemoryReader reader(lpData, uiBufferSize);
 	return this->Load(&reader);
@@ -83,7 +83,7 @@ vlBool CVMTFile::Save(const vlChar *cFileName) const
 	return this->Save(&writer);
 }
 
-vlBool CVMTFile::Save(vlVoid *lpData, vlUInt uiBufferSize, vlUInt &uiSize) const
+vlBool CVMTFile::Save(vlVoid *lpData, vlSize uiBufferSize, vlSize &uiSize) const
 {
 	uiSize = 0;
 
@@ -983,11 +983,11 @@ vlVoid CVMTFile::Save(IO::Writers::IWriter *Writer, CVMTNode *Node, vlUInt uiLev
 
 		this->Indent(Writer, uiLevel);
 		sprintf(cBuffer, "\"%s\"\r\n", Group->GetName());
-		Writer->Write(cBuffer, (vlUInt)strlen(cBuffer));
+		Writer->Write(cBuffer, (vlSize)strlen(cBuffer));
 
 		this->Indent(Writer, uiLevel);
 		sprintf(cBuffer, "{\r\n");
-		Writer->Write(cBuffer, (vlUInt)strlen(cBuffer));
+		Writer->Write(cBuffer, (vlSize)strlen(cBuffer));
 
 		for(vlUInt i = 0; i < Group->GetNodeCount(); i++)
 		{
@@ -996,7 +996,7 @@ vlVoid CVMTFile::Save(IO::Writers::IWriter *Writer, CVMTNode *Node, vlUInt uiLev
 
 		this->Indent(Writer, uiLevel);
 		sprintf(cBuffer, "}\r\n");
-		Writer->Write(cBuffer, (vlUInt)strlen(cBuffer));
+		Writer->Write(cBuffer, (vlSize)strlen(cBuffer));
 	}
 	else if(Node->GetType() == NODE_TYPE_STRING)
 	{
@@ -1004,7 +1004,7 @@ vlVoid CVMTFile::Save(IO::Writers::IWriter *Writer, CVMTNode *Node, vlUInt uiLev
 
 		this->Indent(Writer, uiLevel);
 		sprintf(cBuffer, "\"%s\" \"%s\"\r\n", String->GetName(), String->GetValue());
-		Writer->Write(cBuffer, (vlUInt)strlen(cBuffer));
+		Writer->Write(cBuffer, (vlSize)strlen(cBuffer));
 	}
 	else if(Node->GetType() == NODE_TYPE_INTEGER)
 	{
@@ -1012,7 +1012,7 @@ vlVoid CVMTFile::Save(IO::Writers::IWriter *Writer, CVMTNode *Node, vlUInt uiLev
 
 		this->Indent(Writer, uiLevel);
 		sprintf(cBuffer, "\"%s\" %d\r\n", Integer->GetName(), Integer->GetValue());
-		Writer->Write(cBuffer, (vlUInt)strlen(cBuffer));
+		Writer->Write(cBuffer, (vlSize)strlen(cBuffer));
 	}
 	else if(Node->GetType() == NODE_TYPE_SINGLE)
 	{
@@ -1020,7 +1020,7 @@ vlVoid CVMTFile::Save(IO::Writers::IWriter *Writer, CVMTNode *Node, vlUInt uiLev
 
 		this->Indent(Writer, uiLevel);
 		sprintf(cBuffer, "\"%s\" %f\r\n", Single->GetName(), Single->GetValue());
-		Writer->Write(cBuffer, (vlUInt)strlen(cBuffer));
+		Writer->Write(cBuffer, (vlSize)strlen(cBuffer));
 	}
 }
 

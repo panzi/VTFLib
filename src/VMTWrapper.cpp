@@ -167,7 +167,7 @@ VTFLIB_API vlBool vlMaterialLoad(const vlChar *cFileName)
 	return Material->Load(cFileName);
 }
 
-VTFLIB_API vlBool vlMaterialLoadLump(const vlVoid *lpData, vlUInt uiBufferSize)
+VTFLIB_API vlBool vlMaterialLoadLump(const vlVoid *lpData, vlSize uiBufferSize)
 {
 	if(Material == 0)
 	{
@@ -206,7 +206,7 @@ VTFLIB_API vlBool vlMaterialSave(const vlChar *cFileName)
 	return Material->Save(cFileName);
 }
 
-VTFLIB_API vlBool vlMaterialSaveLump(vlVoid *lpData, vlUInt uiBufferSize, vlUInt *uiSize)
+VTFLIB_API vlBool vlMaterialSaveLump(vlVoid *lpData, vlSize uiBufferSize, vlSize *uiSize)
 {
 	if(Material == 0)
 	{

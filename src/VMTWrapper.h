@@ -38,11 +38,11 @@ VTFLIB_API vlVoid vlMaterialDestroy();
 VTFLIB_API vlBool vlMaterialIsLoaded();
 
 VTFLIB_API vlBool vlMaterialLoad(const vlChar *cFileName);
-VTFLIB_API vlBool vlMaterialLoadLump(const vlVoid *lpData, vlUInt uiBufferSize);
+VTFLIB_API vlBool vlMaterialLoadLump(const vlVoid *lpData, vlSize uiBufferSize);
 VTFLIB_API vlBool vlMaterialLoadProc(vlVoid *pUserData);
 
 VTFLIB_API vlBool vlMaterialSave(const vlChar *cFileName);
-VTFLIB_API vlBool vlMaterialSaveLump(vlVoid *lpData, vlUInt uiBufferSize, vlUInt *uiSize);
+VTFLIB_API vlBool vlMaterialSaveLump(vlVoid *lpData, vlSize uiBufferSize, vlSize *uiSize);
 VTFLIB_API vlBool vlMaterialSaveProc(vlVoid *pUserData);
 
 //

@@ -213,7 +213,7 @@ VTFLIB_API vlBool vlImageLoad(const vlChar *cFileName, vlBool bHeaderOnly)
 	return Image->Load(cFileName, bHeaderOnly);
 }
 
-VTFLIB_API vlBool vlImageLoadLump(const vlVoid *lpData, vlUInt uiBufferSize, vlBool bHeaderOnly)
+VTFLIB_API vlBool vlImageLoadLump(const vlVoid *lpData, vlSize uiBufferSize, vlBool bHeaderOnly)
 {
 	if(Image == 0)
 	{
@@ -246,7 +246,7 @@ VTFLIB_API vlBool vlImageSave(const vlChar *cFileName)
 	return Image->Save(cFileName);
 }
 
-VTFLIB_API vlBool vlImageSaveLump(vlVoid *lpData, vlUInt uiBufferSize, vlUInt *uiSize)
+VTFLIB_API vlBool vlImageSaveLump(vlVoid *lpData, vlSize uiBufferSize, vlSize *uiSize)
 {
 	if(Image == 0)
 	{

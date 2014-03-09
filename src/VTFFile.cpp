@@ -1050,7 +1050,7 @@ vlBool CVTFFile::Load(const vlChar *cFileName, vlBool bHeaderOnly)
 	return this->Load(&reader, bHeaderOnly);
 }
 
-vlBool CVTFFile::Load(const vlVoid *lpData, vlUInt uiBufferSize, vlBool bHeaderOnly)
+vlBool CVTFFile::Load(const vlVoid *lpData, vlSize uiBufferSize, vlBool bHeaderOnly)
 {
 	IO::Readers::CMemoryReader reader(lpData, uiBufferSize);
 	return this->Load(&reader, bHeaderOnly);
@@ -1068,7 +1068,7 @@ vlBool CVTFFile::Save(const vlChar *cFileName) const
 	return this->Save(&writer);
 }
 
-vlBool CVTFFile::Save(vlVoid *lpData, vlUInt uiBufferSize, vlUInt &uiSize) const
+vlBool CVTFFile::Save(vlVoid *lpData, vlSize uiBufferSize, vlSize &uiSize) const
 {
 	uiSize = 0;
 
@@ -1104,7 +1104,7 @@ vlBool CVTFFile::Load(IO::Readers::IReader *Reader, vlBool bHeaderOnly)
 			throw 0;
 
 		// Get the size of the .vtf file.
-		vlUInt uiFileSize = Reader->GetStreamSize();
+		vlSize uiFileSize = Reader->GetStreamSize();
 
 		// Check we at least have enough bytes for a header.
 		if(uiFileSize < sizeof(SVTFFileHeader))
