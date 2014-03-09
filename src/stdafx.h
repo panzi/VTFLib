@@ -28,16 +28,20 @@
 #	endif
 #endif
 
-#ifdef _MSC_VER
+#ifdef __WINDOWS__
 #	ifdef VTFLIB_EXPORTS
 #		define VTFLIB_API __declspec(dllexport)
 #	else
 #		define VTFLIB_API __declspec(dllimport)
 #	endif
+#else
+#	define VTFLIB_API __attribute__((visibility("default")))
+#endif
+
+#ifdef _MSC_VER
 #	define VTFLIB_ALIGN16 __declspec(align(16))
 #	define VTFLIB_PRINTF(FMT,ARGS)
 #else
-#	define VTFLIB_API __attribute__((visibility("default")))
 #	define VTFLIB_ALIGN16 __attribute__((aligned(16)))
 #	define VTFLIB_PRINTF(FMT,ARGS) __attribute__((format(printf, FMT, ARGS)))
 #endif
