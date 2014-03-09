@@ -16,12 +16,6 @@
 using namespace VTFLib;
 using namespace VTFLib::IO::Readers;
 
-CFileReader::CFileReader(vlFile hFile)
-{
-	this->hFile = hFile;
-	this->cFileName = 0;
-}
-
 CFileReader::CFileReader(const vlChar *cFileName)
 {
 	this->hFile = NULL;

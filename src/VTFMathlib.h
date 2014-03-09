@@ -81,7 +81,7 @@ class CACHE_ALIGN VectorAligned
 {
 	public:
 		
-	vlSingle x;		//!< Vector value in the X axis.
+		vlSingle x;		//!< Vector value in the X axis.
 		vlSingle y;		//!< Vector value in the Y axis.
 		vlSingle z;		//!< Vector value in the Z axis.
 
@@ -99,7 +99,7 @@ class CACHE_ALIGN VectorAligned
 			x = 0.0f;
 			y = 0.0f;
 			z = 0.0f;
-		};
+		}
 };
 
 void VecAdd(Vector *a, Vector *b, Vector *sum);			//!< Vector addition function.

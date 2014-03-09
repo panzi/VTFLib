@@ -28,7 +28,6 @@ namespace VTFLib
 				vlChar *cFileName;
 
 			public:
-				CFileWriter(vlFile hFile);
 				CFileWriter(const vlChar *cFileName);
 				~CFileWriter();
 
