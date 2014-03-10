@@ -13,6 +13,8 @@
 #include "Proc.h"
 #include "ProcReader.h"
 
+#include <limits>
+
 using namespace VTFLib;
 using namespace VTFLib::IO::Readers;
 
@@ -83,7 +85,7 @@ vlSSize CProcReader::GetStreamSize() const
 	if(pReadSizeProc == 0)
 	{
 		LastError.Set("pReadSizeProc not set.");
-		return 0xffffffff;
+		return std::numeric_limits<vlSSize>::max();
 	}
 
 	return pReadSizeProc(this->pUserData);

@@ -13,6 +13,8 @@
 #include "Proc.h"
 #include "ProcWriter.h"
 
+#include <limits>
+
 using namespace VTFLib;
 using namespace VTFLib::IO::Writers;
 
@@ -83,7 +85,7 @@ vlSSize CProcWriter::GetStreamSize() const
 	if(pWriteSizeProc == 0)
 	{
 		LastError.Set("pWriteTellProc not set.");
-		return 0xffffffff;
+		return std::numeric_limits<vlSSize>::max();
 	}
 
 	return pWriteSizeProc(this->pUserData);
