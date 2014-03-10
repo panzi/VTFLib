@@ -53,7 +53,7 @@ vlSSize CFileWriter::GetStreamSize() const
 
 	if(fstat(fileno(this->hFile), &buf) != 0) {
 		LastError.Set("fstat() failed.", vlTrue);
-		return -1;
+		return 0;
 	}
 
 	return buf.st_size;
@@ -70,6 +70,7 @@ vlSSize CFileWriter::GetStreamPointer() const
 	if(offset < 0)
 	{
 		LastError.Set("ftello() failed.", vlTrue);
+		return 0;
 	}
 
 	return offset;
@@ -84,7 +85,7 @@ vlSSize CFileWriter::Seek(vlOffset lOffset, VLSeekMode uiMode)
 
 	if(fseeko(this->hFile, lOffset, uiMode) != 0) {
 		LastError.Set("fseeko() failed.", vlTrue);
-		return -1;
+		return 0;
 	}
 	return GetStreamPointer();
 }
