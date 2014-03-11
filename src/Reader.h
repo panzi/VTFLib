@@ -23,6 +23,7 @@ namespace VTFLib
 			class IReader
 			{
 			public:
+				virtual ~IReader() {}
 				virtual vlBool Opened() const = 0;
 
 				virtual vlBool Open() = 0;

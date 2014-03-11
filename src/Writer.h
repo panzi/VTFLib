@@ -23,6 +23,7 @@ namespace VTFLib
 			class IWriter
 			{
 			public:
+				virtual ~IWriter() {}
 				virtual vlBool Opened() const = 0;
 
 				virtual vlBool Open() = 0;
