@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['bgammacorrection',['bGammaCorrection',['../structSVTFCreateOptions.html#a7e3990a050da1ae283d11d287e6ee0a2',1,'SVTFCreateOptions']]],
+  ['biscompressed',['bIsCompressed',['../structSVTFImageFormatInfo.html#a01e17516099c099df747324bb292f187',1,'SVTFImageFormatInfo']]],
+  ['bissupported',['bIsSupported',['../structSVTFImageFormatInfo.html#ac04b07de3bc4cff8d0c87144559ed046',1,'SVTFImageFormatInfo']]],
+  ['bmipmaps',['bMipmaps',['../structSVTFCreateOptions.html#a93292e813cc0009416f636141c66d8b1',1,'SVTFCreateOptions']]],
+  ['bnormalinvertx',['bNormalInvertX',['../structSVTFCreateOptions.html#a210a20fda6f0435e81bd20ab28e91725',1,'SVTFCreateOptions']]],
+  ['bnormalinverty',['bNormalInvertY',['../structSVTFCreateOptions.html#aeb8828c302a4a53f7761296360361248',1,'SVTFCreateOptions']]],
+  ['bnormalinvertz',['bNormalInvertZ',['../structSVTFCreateOptions.html#ac378363e7831ab2cba346d113efccbf2',1,'SVTFCreateOptions']]],
+  ['bnormalmap',['bNormalMap',['../structSVTFCreateOptions.html#ae32afadbaddce9657389c8e2e0b64a4e',1,'SVTFCreateOptions']]],
+  ['bnormalminimumz',['bNormalMinimumZ',['../structSVTFCreateOptions.html#a3cc8cf9359436b967f87b09f1fe54635',1,'SVTFCreateOptions']]],
+  ['bnormalwrap',['bNormalWrap',['../structSVTFCreateOptions.html#ae27963d63728eb2ae0c245f76854f16d',1,'SVTFCreateOptions']]],
+  ['breflectivity',['bReflectivity',['../structSVTFCreateOptions.html#a865ef99dd2a323fcccb76f14418ffcab',1,'SVTFCreateOptions']]],
+  ['bresize',['bResize',['../structSVTFCreateOptions.html#aa6ba27419425406c80d39341f3911f4a',1,'SVTFCreateOptions']]],
+  ['bresizeclamp',['bResizeClamp',['../structSVTFCreateOptions.html#aec1732bc1c38cefed82b088b0eaf3657',1,'SVTFCreateOptions']]],
+  ['bspheremap',['bSphereMap',['../structSVTFCreateOptions.html#ad69713510373c8cc56c04bf120056bbf',1,'SVTFCreateOptions']]],
+  ['bthumbnail',['bThumbnail',['../structSVTFCreateOptions.html#a409d1a3d82991fa7a30402791a6e3777',1,'SVTFCreateOptions']]],
+  ['bumpscale',['BumpScale',['../structSVTFHeader__70.html#a42f0aa33f604b3ec690e3344ee8540dd',1,'SVTFHeader_70']]]
+];
