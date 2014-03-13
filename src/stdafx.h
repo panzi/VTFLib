@@ -13,7 +13,7 @@
 // NOTE: This file is commented for compatibility with Doxygen.
 // ============================================================
 /*!
-	\file StdAfx.h
+	\file stdafx.h
 	\brief Application framework header plus VTFLib custom data types.
 */
 

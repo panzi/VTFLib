@@ -20,7 +20,13 @@
 // Note: VTF creation requires nvDXTLib and has been
 //       tested with version 8.31.1127.1645, availible here:
 //       http://developer.nvidia.com/object/dds_utilities_legacy.html
-// TODO: Use libtxc_dxtn under Linux.
+// 
+//       Under Linux libtxc_dxtn is used. This only supports S3TC
+//       compression and not mipmap generation, image resizing or
+//       normal map conversion.
+//       http://cgit.freedesktop.org/~mareko/libtxc_dxtn/
+//
+// TODO: Find a library that provides all that under Linux.
 
 #ifdef USE_NVDXT
 	// Disable all the warnings in the nvDXTLib.

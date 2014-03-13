@@ -18,6 +18,8 @@ option(USE_LIBTXC_DXTN "VTF creation requires a S3TC implementation.
 For this libtxc_dxtn can be used, availible here:
 http://cgit.freedesktop.org/~mareko/libtxc_dxtn/" ON)
 
+option(BUILD_DOCS "Build doxygen documentation" OFF)
+
 if(USE_NVDXT AND USE_LIBTXC_DXTN)
 	message(FATAL_ERROR "Cannot use both options USE_NVDXT and USE_LIBTXC_DXTN at once.")
 endif()
@@ -109,6 +111,23 @@ install(CODE ${VTFLIB_PC_INSTALL_CODE})
 
 # ---- sub directories --------------------------------------------------------
 add_subdirectory(src)
+
+# ---- docs tareget -----------------------------------------------------------
+
+if(BUILD_DOCS)
+	find_package(Doxygen)
+	if(NOT DOXYGEN_FOUND)
+		message(FATAL_ERROR
+			"Doxygen is needed to build the documentation.")
+	endif()
+
+	configure_file(Doxyfile.in
+		"${PROJECT_BINARY_DIR}/Doxyfile" @ONLY)
+
+	add_custom_target(docs ALL
+		COMMAND ${DOXYGEN_EXECUTABLE} ${PROJECT_BINARY_DIR}/Doxyfile
+		SOURCES ${PROJECT_BINARY_DIR}/Doxyfile)
+endif()
 
 # ---- uninstall target -------------------------------------------------------
 configure_file(

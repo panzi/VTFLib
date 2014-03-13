@@ -1,0 +1,19 @@
+PROJECT_NAME          = VTFLib
+PROJECT_BRIEF         = "A C and C++ API that, with a few simple functions, can open and save .vtf and .vmt files."
+INPUT                 = @CMAKE_CURRENT_SOURCE_DIR@/src
+STRIP_FROM_PATH       = @CMAKE_CURRENT_SOURCE_DIR@/src
+OUTPUT_DIRECTORY      = @CMAKE_CURRENT_BINARY_DIR@/docs
+OPTIMIZE_OUTPUT_FOR_C = YES
+FULL_PATH_NAMES       = NO
+GENERATE_LATEX        = NO
+GENERATE_HTML         = YES
+GENERATE_MAN          = NO
+SEARCHENGINE          = YES
+HIDE_UNDOC_MEMBERS    = YES
+HIDE_UNDOC_CLASSES    = YES
+ENABLE_PREPROCESSING  = YES
+MACRO_EXPANSION       = YES
+EXPAND_ONLY_PREDEF    = YES
+TYPEDEF_HIDES_STRUCT  = YES
+PREDEFINED            = __attribute__(X)= \
+                        __declspec(X)=

@@ -179,6 +179,7 @@ namespace VTFLib
 			\param uiSlices is the number of z slices in the VTF image (default 1).
 			\param ImageFormat is the storage format of the main VTF image (default RGBA8888).
 			\param bThumbnail sets if the VTF image will contain an additional thumbnail (default true).
+			\param bMipmaps sets if the VTF image will contain mipmaps (default true).
 			\param bNullImageData sets if the image data should be zero'd out on creation (default false).
 			\return true on successful creation, otherwise false.
 			\note Animated and static textures have 1 face. Cubemaps have 6, one for each side of the cube.
@@ -281,7 +282,8 @@ namespace VTFLib
 			Saves a VTF format image file to memory from the current VTFFile class.
 
 			\param lpData is a pointer to save the image to.
-			\param uiBufferSize is the size of the VTF file in bytes.
+			\param uiBufferSize is the size of the buffer in bytes.
+			\param uiSize is the size of VTF file in bytes as written into lpData.
 			\return true on sucessful save, otherwise false.
 		*/
 		vlBool Save(vlVoid *lpData, vlSize uiBufferSize, vlSize &uiSize) const;
@@ -686,6 +688,7 @@ namespace VTFLib
 			\param bWrap sets whether the normal map should be tileable (default false).
 			\param bInvertX sets if the normal map should be flipped along its X axis (default false).
 			\param bInvertY sets if the normal map should be flipped along its Y axis (default false).
+			\param bInvertZ sets if the normal map should be flipped along its Z axis (default false).
 			\return true on sucessful conversion, otherwise false.
 		*/
 		static vlBool ConvertToNormalMap(const vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, vlUInt uiWidth, vlUInt uiHeight, VTFKernelFilter KernelFilter = KERNEL_FILTER_3X3, VTFHeightConversionMethod HeightConversionMethod = HEIGHT_CONVERSION_METHOD_AVERAGE_RGB, VTFNormalAlphaResult NormalAlphaResult = NORMAL_ALPHA_RESULT_WHITE, vlByte bMinimumZ = 0, vlSingle sScale = 2.0f, vlBool bWrap = vlFalse, vlBool bInvertX = vlFalse, vlBool bInvertY = vlFalse, vlBool bInvertZ = vlFalse);
