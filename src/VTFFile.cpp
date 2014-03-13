@@ -29,7 +29,7 @@
 #	pragma warning(disable: 4267)
 
 #	if _MSC_VER >= 1400 // Visual Studio 2005
-#		include "dxtlib\dxtlib.h"
+#		include "dxtlib/dxtlib.h"
 #		ifdef _DEBUG
 #			ifdef _WIN64
 #				pragma comment(lib, "nvDXTlibMTd.vc8.x64.lib")
@@ -44,7 +44,7 @@
 #			endif
 #		endif
 #	elif _MSC_VER >= 1310 // Visual Studio 2003
-#		include "dxtlib\dxtlib.h"
+#		include "dxtlib/dxtlib.h"
 #		ifdef _DEBUG
 #			pragma comment(lib, "nvDXTlibMTd.vc7.lib")
 #		else
@@ -57,6 +57,28 @@
 #	pragma warning(default: 4267)
 #	pragma warning(default: 4244)
 #	pragma warning(default: 4018)
+#endif
+
+#ifdef USE_LIBTXC_DXTN
+
+#	include <GL/gl.h>
+
+// txc_dxtn.h is not included in the libtxc_dxtn package of common Linux distributions
+// and there is no libtxc_dxtn-devel package (on Fedora), but I only need one function anyway.
+// See: http://cgit.freedesktop.org/~mareko/libtxc_dxtn/
+
+/*!
+ * destFormat values:
+ *   GL_COMPRESSED_RGB_S3TC_DXT1_EXT
+ *   GL_COMPRESSED_RGBA_S3TC_DXT1_EXT
+ *   GL_COMPRESSED_RGBA_S3TC_DXT3_EXT
+ *   GL_COMPRESSED_RGBA_S3TC_DXT5_EXT
+ *
+ */
+void tx_compress_dxtn(GLint srccomps, GLint width, GLint height,
+					  const GLubyte *srcPixData, GLenum destformat,
+					  GLubyte *dest, GLint dstRowStride);
+
 #endif
 
 using namespace VTFLib;
@@ -3500,13 +3522,43 @@ vlBool CVTFFile::CompressDXTn(const vlByte *lpSource, vlByte *lpDest, vlUInt uiW
 	Options.user_data = &UserData;
 
 	return nvDXTCompressWrapper(lpSource, uiWidth, uiHeight, &Options, NVWriteCallback);
+#elif defined(USE_LIBTXC_DXTN)
+	GLenum destformat = 0;
+	GLint dstRowStride = 0;
+
+	switch(DestFormat)
+	{
+	case IMAGE_FORMAT_DXT1:
+		destformat = GL_COMPRESSED_RGB_S3TC_DXT1_EXT;
+		dstRowStride = ((uiWidth + 3) / 4) * 8;
+		break;
+	case IMAGE_FORMAT_DXT1_ONEBITALPHA:
+		destformat = GL_COMPRESSED_RGBA_S3TC_DXT1_EXT;
+		dstRowStride = ((uiWidth + 3) / 4) * 8;
+		break;
+	case IMAGE_FORMAT_DXT3:
+		destformat = GL_COMPRESSED_RGBA_S3TC_DXT3_EXT;
+		dstRowStride = ((uiWidth + 3) / 4) * 16;
+		break;
+	case IMAGE_FORMAT_DXT5:
+		destformat = GL_COMPRESSED_RGBA_S3TC_DXT5_EXT;
+		dstRowStride = ((uiWidth + 3) / 4) * 16;
+		break;
+	default:
+		LastError.Set("Destination image format not supported.");
+		return vlFalse;
+	}
+
+	tx_compress_dxtn(4, uiWidth, uiHeight, lpSource, destformat, lpDest, dstRowStride);
+
+	return vlTrue;
 #else
 	(void)lpSource;
 	(void)lpDest;
 	(void)uiWidth;
 	(void)uiHeight;
 	(void)DestFormat;
-	LastError.Set("NVDXT support required for DXTn compression).");
+	LastError.Set("NVDXT or libtxc_dxtn support required for DXTn compression).");
 	return vlFalse;
 #endif
 }

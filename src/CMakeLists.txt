@@ -71,5 +71,9 @@ add_library(${VTFLIB_NAME} SHARED
 	${vtflib_HDRS}
 	"${CMAKE_CURRENT_BINARY_DIR}/Resource.rc")
 
+if(USE_LIBTXC_DXTN)
+	target_link_libraries(${VTFLIB_NAME} ${LIBTXC_DXTN_LIBRARY})
+endif()
+
 install(TARGETS ${VTFLIB_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(FILES ${vtflib_HDRS} DESTINATION "include/${VTFLIB_NAME}")

@@ -10,9 +10,36 @@ set(VTFLIB_NAME VTFLib${VTFLIB_MAJOR_VERSION}${VTFLIB_MINOR_VERSION})
 set(VTFLIB_VERSION ${VTFLIB_MAJOR_VERSION}.${VTFLIB_MINOR_VERSION}.${VTFLIB_PATCH_VERSION})
 
 # ---- options ----------------------------------------------------------------
-option(USE_NVDXT "(Windows only) VTF creation requires nvDXTLib and has been
-tested with version 8.31.1127.1645, availible here:
+option(USE_NVDXT "(Windows only) VTF creation requires a S3TC implementation.
+For this nvDXTLib can be used and has been tested with version 8.31.1127.1645, availible here:
 http://developer.nvidia.com/object/dds_utilities_legacy.html" OFF)
+
+option(USE_LIBTXC_DXTN "VTF creation requires a S3TC implementation.
+For this libtxc_dxtn can be used, availible here:
+http://cgit.freedesktop.org/~mareko/libtxc_dxtn/" ON)
+
+if(USE_NVDXT AND USE_LIBTXC_DXTN)
+	message(FATAL_ERROR "Cannot use both options USE_NVDXT and USE_LIBTXC_DXTN at once.")
+endif()
+
+# ---- dependencies -----------------------------------------------------------
+if(USE_LIBTXC_DXTN)
+	find_path(GL_INCLUDE_DIR GL/gl.h)
+	find_library(LIBTXC_DXTN_LIBRARY txc_dxtn)
+
+	if(NOT(GL_INCLUDE_DIR))
+		message(FATAL_ERROR "GL/gl.h not found!
+Please re-run with -DUSE_LIBTXC_DXTN=OFF if you don't want S3TC support.")
+	endif()
+
+	if(NOT(LIBTXC_DXTN_LIBRARY))
+		message(FATAL_ERROR "libtxc_dxtn not found!
+Please re-run with -DUSE_LIBTXC_DXTN=OFF if you don't want S3TC support.")
+	endif()
+
+	add_definitions(-DUSE_LIBTXC_DXTN)
+	include_directories(${GL_INCLUDE_DIR})
+endif()
 
 # ---- compiler flags ---------------------------------------------------------
 if(MSVC)
