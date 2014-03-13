@@ -33,6 +33,10 @@ However, all read-only features are supported.
  * [libtxc\_dxtn](http://cgit.freedesktop.org/~mareko/libtxc_dxtn/) for writing S3TC
    compressed textures (optional).
 
+### Documentation
+
+[Doxygen API Reference](http://panzi.github.io/VTFLib/)
+
 ### Projects Using VTFLib for Linux
 
  * [pixbufloader-vtf](https://github.com/panzi/pixbufloader-vtf) - load VTF files in
