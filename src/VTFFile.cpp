@@ -4185,6 +4185,9 @@ vlBool CVTFFile::ConvertToNormalMap(const vlByte *lpSourceRGBA8888, vlByte *lpDe
 	(void)bInvertX;
 	(void)bInvertY;
 	(void)bInvertZ;
+	(void)KernelFilter;
+	(void)HeightConversionMethod;
+	(void)NormalAlphaResult;
 
 	LastError.Set("NVDXT support required for CVTFFile::ConvertToNormalMap().");
 	return vlFalse;
@@ -4239,6 +4242,9 @@ vlBool CVTFFile::Resize(const vlByte *lpSourceRGBA8888, vlByte *lpDestRGBA8888, 
 	(void)uiSourceHeight;
 	(void)uiDestWidth;
 	(void)uiDestHeight;
+	(void)ResizeFilter;
+	(void)SharpenFilter;
+
 	LastError.Set("NVDXT support required for CVTFFile::Resize().");
 	return vlFalse;
 #endif
