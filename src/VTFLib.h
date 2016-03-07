@@ -106,6 +106,7 @@
 
 #ifdef __cplusplus
 #include <vector>
+#endif
 
 namespace VTFLib
 {
