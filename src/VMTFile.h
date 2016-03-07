@@ -13,9 +13,13 @@
 #define VTFLIB_VMTFILE_H
 
 #include "stdafx.h"
-#include "Readers.h"
-#include "Writers.h"
-#include "VMTNodes.h"
+#ifdef __cplusplus
+#	include "Readers.h"
+#	include "Writers.h"
+#	include "VMTNodes.h"
+#else
+#	include "VMTNode.h"
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,6 +36,8 @@ typedef enum tagVMTParseMode
 #ifdef __cplusplus
 }
 #endif
+
+#ifdef __cplusplus
 
 namespace VTFLib
 {
@@ -72,5 +78,7 @@ namespace VTFLib
 		Nodes::CVMTGroupNode *GetRoot() const;
 	};
 }
+
+#endif
 
 #endif

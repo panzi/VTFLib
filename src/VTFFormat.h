@@ -327,6 +327,8 @@ typedef enum tagVTFResourceEntryType
 
 #pragma pack(1)
 
+#ifdef __cplusplus
+
 //! VTFFileHeader struct.
 /*!
 
@@ -497,6 +499,8 @@ struct SVTFHeader : public SVTFHeader_74_A
 	SVTFResource		Resources[VTF_RSRC_MAX_DICTIONARY_ENTRIES];
 	SVTFResourceData	Data[VTF_RSRC_MAX_DICTIONARY_ENTRIES];
 };
+
+#endif
 
 #pragma pack()
 

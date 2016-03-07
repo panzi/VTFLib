@@ -32,6 +32,8 @@ typedef enum tagVMTNodeType
 }
 #endif
 
+#ifdef __cplusplus
+
 namespace VTFLib
 {
 	namespace Nodes
@@ -61,5 +63,7 @@ namespace VTFLib
 		};
 	}
 }
+
+#endif
 
 #endif
