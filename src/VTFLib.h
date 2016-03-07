@@ -104,7 +104,9 @@
 #include "VTFFile.h"
 #include "VMTFile.h"
 
+#ifdef __cplusplus
 #include <vector>
+#endif
 
 namespace VTFLib
 {

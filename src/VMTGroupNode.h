@@ -19,7 +19,9 @@
 #include "VMTIntegerNode.h"
 #include "VMTSingleNode.h"
 
+#ifdef __cplusplus
 #include <list>
+#endif
 
 namespace VTFLib
 {
