@@ -104,14 +104,15 @@
 #include "VTFFile.h"
 #include "VMTFile.h"
 
+#ifdef __cplusplus
 #include <vector>
+#endif
 
 namespace VTFLib
 {
 	typedef std::vector<VTFLib::CVTFFile *> CImageVector;
 	typedef std::vector<VTFLib::CVMTFile *> CMaterialVector;
 
-	extern vlBool bInitialized;
 	VTFLIB_API extern Diagnostics::CError LastError;
 
 	extern CVTFFile *Image;
@@ -119,7 +120,8 @@ namespace VTFLib
 
 	extern CVMTFile *Material;
 	extern CMaterialVector *MaterialVector;
-
+#endif
+        extern vlBool bInitialized;
 	extern vlUInt uiDXTQuality;
 
 	extern vlSingle sLuminanceWeightR;
@@ -146,7 +148,9 @@ namespace VTFLib
 	extern vlSingle sXSharpenThreshold;
 
 	extern vlUInt uiVMTParseMode;
+#ifdef __cplusplus
 }
+#endif
 
 #ifdef __cplusplus
 extern "C" {
