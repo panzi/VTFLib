@@ -98,7 +98,9 @@ typedef unsigned __int64	vlUInt64;
 
 #else
 
+#ifdef __cplusplus
 #include <cstdint>
+#endif
 
 typedef off_t	vlOffset;
 typedef off_t	vlSSize;
