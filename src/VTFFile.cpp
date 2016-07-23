@@ -81,9 +81,12 @@
  *   GL_COMPRESSED_RGBA_S3TC_DXT5_EXT
  *
  */
-void tx_compress_dxtn(GLint srccomps, GLint width, GLint height,
-					  const GLubyte *srcPixData, GLenum destformat,
-					  GLubyte *dest, GLint dstRowStride);
+
+extern "C" {
+	void tx_compress_dxtn(GLint srccomps, GLint width, GLint height,
+						  const GLubyte *srcPixData, GLenum destformat,
+						  GLubyte *dest, GLint dstRowStride);
+}
 
 #endif
 
