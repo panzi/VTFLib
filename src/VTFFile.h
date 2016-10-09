@@ -21,8 +21,12 @@
 #define VTFLIB_VTFFILE_H
 
 #include "stdafx.h"
-#include "Readers.h"
-#include "Writers.h"
+
+#ifdef __cplusplus
+#	include "Readers.h"
+#	include "Writers.h"
+#endif
+
 #include "VTFFormat.h"
 
 #ifdef __cplusplus
@@ -108,6 +112,7 @@ typedef struct tagSVTFCreateOptions
 }
 #endif
 
+#ifdef __cplusplus
 namespace VTFLib
 {
 	//! VTF File access/creation class.
@@ -751,5 +756,6 @@ namespace VTFLib
 		static vlVoid MirrorImage(vlByte *lpImageDataRGBA8888, vlUInt uiWidth, vlUInt uiHeight);	//!< Flips an image horizontally along its Y-axis.
 	};
 }
+#endif // c++
 
 #endif

@@ -9,10 +9,11 @@
  * version.
  */
 
-#ifndef VTFLIB_VTFWRAPPER_H
-#define VTFLIB_VTFWRAPPER_H
+#ifndef VTFLIB_VMTWRAPPER_H
+#define VTFLIB_VMTWRAPPER_H
 
 #include "stdafx.h"
+#include "VMTFile.h"
 
 #ifdef __cplusplus
 extern "C" {

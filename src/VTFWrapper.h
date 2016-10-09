@@ -14,6 +14,8 @@
 
 #include "stdafx.h"
 
+#include "VTFFile.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

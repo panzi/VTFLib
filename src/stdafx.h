@@ -82,6 +82,12 @@ typedef unsigned __int16	vlUInt16;
 typedef unsigned __int32	vlUInt32;
 typedef unsigned __int64	vlUInt64;
 
+#ifdef __cplusplus
+#	include <cstdint>
+#else
+#	include <stdint.h>
+#endif
+
 #	if _MSC_VER >= 1400
 #		define _CRT_SECURE_NO_WARNINGS
 #		define _CRT_NONSTDC_NO_DEPRECATE
@@ -97,8 +103,6 @@ typedef unsigned __int64	vlUInt64;
 #	endif
 
 #else
-
-#include <cstdint>
 
 typedef off_t	vlOffset;
 typedef off_t	vlSSize;
