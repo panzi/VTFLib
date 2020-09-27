@@ -4024,6 +4024,19 @@ vlBool CVTFFile::Convert(const vlByte *lpSource, vlByte *lpDest, vlUInt uiWidth,
 		return vlTrue;
 	}
 
+	if(SourceFormat == IMAGE_FORMAT_BGRA8888 && DestFormat == IMAGE_FORMAT_RGBA8888)
+	{
+		const vlByte *lpLast = lpSource + CVTFFile::ComputeImageSize(uiWidth, uiHeight, 1, SourceFormat);
+		for (; lpSource < lpLast; lpSource += 4, lpDest += 4)
+		{
+			lpDest[0] = lpSource[2];
+			lpDest[1] = lpSource[1];
+			lpDest[2] = lpSource[0];
+			lpDest[3] = lpSource[3];
+		}
+		return vlTrue;
+	}
+
 	// Do general convertions.
 	if(SourceInfo.bIsCompressed || DestInfo.bIsCompressed)
 	{
