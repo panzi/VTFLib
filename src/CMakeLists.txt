@@ -58,6 +58,7 @@ set(vtflib_HDRS
 
 configure_file(config.h.in "${CMAKE_CURRENT_BINARY_DIR}/config.h" @ONLY)
 configure_file(Resource.rc.in "${CMAKE_CURRENT_BINARY_DIR}/Resource.rc" @ONLY)
+configure_file(resource.h "${CMAKE_CURRENT_BINARY_DIR}/resource.h" COPYONLY)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 	add_subdirectory(windows)
