@@ -85,7 +85,7 @@ vlSSize CProcWriter::GetStreamSize() const
 	if(pWriteSizeProc == 0)
 	{
 		LastError.Set("pWriteTellProc not set.");
-		return std::numeric_limits<vlSSize>::max();
+		return (std::numeric_limits<vlSSize>::max)();
 	}
 
 	return pWriteSizeProc(this->pUserData);

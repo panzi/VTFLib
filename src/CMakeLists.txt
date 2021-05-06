@@ -35,6 +35,7 @@ set(vtflib_HDRS
 	ProcWriter.h
 	Reader.h
 	Readers.h
+	resource.h
 	stdafx.h
 	VMTFile.h
 	VMTGroupNode.h

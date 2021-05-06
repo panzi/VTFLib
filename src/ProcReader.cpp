@@ -85,7 +85,7 @@ vlSSize CProcReader::GetStreamSize() const
 	if(pReadSizeProc == 0)
 	{
 		LastError.Set("pReadSizeProc not set.");
-		return std::numeric_limits<vlSSize>::max();
+		return (std::numeric_limits<vlSSize>::max)();
 	}
 
 	return pReadSizeProc(this->pUserData);
