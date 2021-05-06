@@ -10,6 +10,8 @@ set(VTFLIB_NAME VTFLib${VTFLIB_MAJOR_VERSION}${VTFLIB_MINOR_VERSION})
 set(VTFLIB_VERSION ${VTFLIB_MAJOR_VERSION}.${VTFLIB_MINOR_VERSION}.${VTFLIB_PATCH_VERSION})
 
 # ---- options ----------------------------------------------------------------
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+
 option(USE_NVDXT "(Windows only) VTF creation requires a S3TC implementation.
 For this nvDXTLib can be used and has been tested with version 8.31.1127.1645, availible here:
 http://developer.nvidia.com/object/dds_utilities_legacy.html" OFF)
