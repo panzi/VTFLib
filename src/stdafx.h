@@ -77,7 +77,7 @@ typedef vlSingle		vlFloat;			//!< Floating point number (same as vlSingled).
 #	include <stdint.h>
 #endif
 
-#ifdef __WINDOWS__
+#ifdef _MSC_VER
 typedef vlLong				vlOffset;		//!< Seek offset.
 typedef vlUInt				vlSSize;		//!< File size.
 typedef vlUInt				vlSize;			//!< General size.
@@ -125,7 +125,7 @@ typedef FILE*	vlFile;
 
 typedef enum tagVLSeekMode
 {
-#ifdef __WINDOWS__
+#ifdef _MSC_VER
 	SEEK_MODE_BEGIN = FILE_BEGIN,
 	SEEK_MODE_CURRENT = FILE_CURRENT,
 	SEEK_MODE_END = FILE_END
