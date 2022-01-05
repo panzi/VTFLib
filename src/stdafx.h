@@ -28,14 +28,18 @@
 #	endif
 #endif
 
-#ifdef __WINDOWS__
-#	ifdef VTFLIB_EXPORTS
-#		define VTFLIB_API __declspec(dllexport)
+#ifdef VTFLIB_USE_DLL
+#	ifdef __WINDOWS__
+#		ifdef VTFLIB_EXPORTS
+#			define VTFLIB_API __declspec(dllexport)
+#		else
+#			define VTFLIB_API __declspec(dllimport)
+#		endif
 #	else
-#		define VTFLIB_API __declspec(dllimport)
+#		define VTFLIB_API __attribute__((visibility("default")))
 #	endif
 #else
-#	define VTFLIB_API __attribute__((visibility("default")))
+#	define VTFLIB_API
 #endif
 
 #ifdef _MSC_VER
