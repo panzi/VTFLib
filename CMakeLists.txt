@@ -68,6 +68,10 @@ if(NOT(${CMAKE_SYSTEM_NAME} STREQUAL "Windows"))
 	add_definitions(${VTFLIB_PC_CFLAGS})
 endif()
 
+if(BUILD_SHARED_LIBS)
+	add_definitions(-DVTFLIB_USE_DLL)
+endif()
+
 # compiling the library now:
 add_definitions(-DVTFLIB_EXPORTS)
 
