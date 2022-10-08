@@ -30,8 +30,30 @@ However, all read-only features are supported.
 
 ### Dependencies
 
- * [libtxc\_dxtn](http://cgit.freedesktop.org/~mareko/libtxc_dxtn/) for writing S3TC
+ * [libtxc\_dxtn](https://people.freedesktop.org/~cbrill/libtxc_dxtn/) for writing S3TC
    compressed textures (optional).
+   
+<details><summary>Installation</summary><p>
+	
+*From https://askubuntu.com/questions/1033209/libtxc-dxtn-libtxc-dxtni386-not-found-in-ppa-18-04-bionic#1047591*
+```
+# required stuff
+sudo apt-get install mesa-common-dev
+# get source files
+cd ~/
+wget https://people.freedesktop.org/~cbrill/libtxc_dxtn/libtxc_dxtn-1.0.1.tar.gz
+tar xvfz libtxc_dxtn-1.0.1.tar.gz
+cd libtxc_dxtn-1.0.1
+# start the job
+./configure
+make
+sudo make install
+# clean up sources (optional)
+cd ..
+rm -rf libtxc_dxtn-1.0.1 libtxc_dxtn-1.0.1.tar.gz
+```
+
+</p></details>
 
 ### Documentation
 
