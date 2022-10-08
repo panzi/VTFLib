@@ -62,7 +62,7 @@ if(USE_NVDXT AND ${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 	# TODO: libraries?
 endif()
 
-if(NOT(${CMAKE_SYSTEM_NAME} STREQUAL "Windows"))
+if(UNIX)
 	# big file support (files > 2GB). makes off_t 64bit even on 32bit platforms and makes fseeko/ftello available.
 	set(VTFLIB_PC_CFLAGS "-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE")
 	add_definitions(${VTFLIB_PC_CFLAGS})
