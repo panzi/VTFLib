@@ -1,0 +1,6 @@
+set(vtflib_OS_SRCS
+	"${CMAKE_CURRENT_SOURCE_DIR}/Error.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/FileReader.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/FileWriter.cpp"
+	"${CMAKE_CURRENT_SOURCE_DIR}/VTFLib.cpp"
+	PARENT_SCOPE)
